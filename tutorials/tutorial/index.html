@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HTML Tutorial</title>
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="/favicon.png">
+<script defer src="/script.js"></script>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f4f6f8;
+    }
+
+    /* Layout */
+    .layout {
+        display: flex;
+        height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+        width: 260px;
+        background: #212529;
+        color: white;
+        padding: 15px;
+        overflow-y: auto;
+    }
+
+    .sidebar h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .sidebar a {
+        display: block;
+        color: #ddd;
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 5px;
+    }
+
+    .sidebar a:hover,
+    .sidebar a.active {
+        background: #0d6efd;
+        color: white;
+    }
+
+    /* Content */
+    .content {
+        flex: 1;
+        padding: 30px;
+        background: white;
+        overflow-y: auto;
+    }
+
+    .content h1 {
+        color: #0d6efd;
+    }
+
+    /* Navigation Buttons */
+    .nav-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 40px;
+    }
+
+    .nav-buttons button {
+        padding: 10px 20px;
+        border: none;
+        background: #0d6efd;
+        color: white;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .nav-buttons button:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- Header -->
+<div data-include="/header.html"></div>
+    
+<div class="layout">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>HTML Tutorial</h2>
+        <a href="#" onclick="loadLesson(0)" class="active">Introduction</a>
+        <a href="#" onclick="loadLesson(1)">HTML Editors</a>
+        <a href="#" onclick="loadLesson(2)">HTML Structure</a>
+        <a href="#" onclick="loadLesson(3)">HTML Headings</a>
+        <a href="#" onclick="loadLesson(4)">HTML Paragraphs</a>
+        <a href="#" onclick="loadLesson(5)">HTML Links</a>
+        <a href="#" onclick="loadLesson(6)">HTML Images</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <h1 id="title"></h1>
+        <p id="lesson"></p>
+
+        <div class="nav-buttons">
+            <button id="prevBtn" onclick="prevLesson()">⬅ Previous</button>
+            <button id="nextBtn" onclick="nextLesson()">Next ➡</button>
+        </div>
+    </div>
+
+</div>
+    
+<!-- Footer -->
+<div data-include="/footer.html"></div>
+
+<script>
+    const lessons = [
+        {
+            title: "Introduction to HTML",
+            content: "HTML stands for HyperText Markup Language. It is used to create the structure of web pages.qqqqqqqqqqqqq qqqqqqqqqqqqq qqqqqqqqqqqqq qqqqqqqqqqqqq qqqqqqqqqqqqq qqqqqqqqqqqqq qqqqqqqqqqqqq qqqqqqqqqqqqq v v v qqqqqqqqqqqqq qqqqqqqqqqqqq qqqqqqqqqqqqq qqqqqqqqqqqqq qqqqqqqqqqqqq qqqqqqqqqqqqq qqqqqqqqqqqqq qqqqqqqqqqqqq qqqqqqqqqqqqq qqqqqqqqqqqqq qqqqqqqqqqqqq qqqqqqqqqqqqq qqqqqqqqqqqqq qqqqqqqqqqqqq qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq qqqqqqqqqqqqq qqqqqqqqqqqqq qqqqqqqqqqqqq"
+        },
+        {
+            title: "HTML Editors",
+            content: "HTML can be written using simple text editors like Notepad or advanced editors like VS Code."
+        },
+        {
+            title: "HTML Structure",
+            content: "An HTML document consists of <!DOCTYPE>, <html>, <head>, and <body> elements."
+        },
+        {
+            title: "HTML Headings",
+            content: "HTML headings are defined using <h1> to <h6> tags."
+        },
+        {
+            title: "HTML Paragraphs",
+            content: "Paragraphs are defined using the <p> tag."
+        },
+        {
+            title: "HTML Links",
+            content: "Links are defined using the <a> tag and allow navigation between pages."
+        },
+        {
+            title: "HTML Images",
+            content: "Images are added using the <img> tag with src and alt attributes."
+        }
+    ];
+
+    let currentLesson = 0;
+
+    function loadLesson(index) {
+        currentLesson = index;
+        document.getElementById("title").innerText = lessons[index].title;
+        document.getElementById("lesson").innerText = lessons[index].content;
+
+        document.querySelectorAll(".sidebar a").forEach((link, i) => {
+            link.classList.toggle("active", i === index);
+        });
+
+        document.getElementById("prevBtn").disabled = index === 0;
+        document.getElementById("nextBtn").disabled = index === lessons.length - 1;
+    }
+
+    function prevLesson() {
+        if (currentLesson > 0) loadLesson(currentLesson - 1);
+    }
+
+    function nextLesson() {
+        if (currentLesson < lessons.length - 1) loadLesson(currentLesson + 1);
+    }
+
+    loadLesson(0);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechStudy24By7 — Master Skills Anytime, Anywhere</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="/style.css">
+  <script defer src="/script.js"></script>
+</head>
+<body>
+
+  <!-- Header -->
+  <div data-include="/header.html"></div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Master New Skills Online</h1>
+    <p>Join thousands of learners and access top-rated courses anytime, anywhere.</p>
+    <div class="cta-buttons">
+      <a href="/courses/">Browse Courses</a>
+      <a href="/register/">Get Started</a>
+    </div>
+  </section>
+
+  <!-- Featured Courses -->
+  <section class="courses">
+    <h2>Featured Courses</h2>
+    <div class="course-grid">
+      <div class="course-card">
+        <img src="/complete-python-bootcamp.jpeg" alt="Complete Python Bootcamp">
+        <div class="course-content">
+          <h3>Complete Python Bootcamp</h3>
+          <p>Learn Python from scratch and build real-world projects.</p>
+          <a href="/courses/complete-python-bootcamp/">Enroll Now</a>
+        </div>
+      </div>
+      <div class="course-card">
+        <img src="/devops-fundamentals.png" alt="DevOps Fundamentals">
+        <div class="course-content">
+          <h3>DevOps Fundamentals</h3>
+          <p>Master Linux, Docker, Kubernetes, and CI/CD pipelines.</p>
+          <a href="/courses/devops-fundamentals/">Enroll Now</a>
+        </div>
+      </div>
+      <div class="course-card">
+        <img src="/fullstack-web-development.png" alt="Full-Stack Web Development">
+        <div class="course-content">
+          <h3>Full-Stack Web Development</h3>
+          <p>Build responsive websites and web apps with modern technologies.</p>
+          <a href="/courses/fullstack-web-development/">Enroll Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="categories">
+    <h2>Explore Categories</h2>
+    <div class="category-list">
+      <a href="/categories/programming/">Programming</a>
+      <a href="/categories/devops/">DevOps</a>
+      <a href="/categories/data-science/">Data Science</a>
+      <a href="/categories/design/">Design</a>
+      <a href="/categories/business/">Business</a>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <h2>What Our Students Say</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <p>"This platform helped me land my dream job in tech!"</p>
+        <h4>– Sarah L.</h4>
+      </div>
+      <div class="testimonial-card">
+        <p>"Amazing courses and instructors. Highly recommended."</p>
+        <h4>– John D.</h4>
+      </div>
+      <div class="testimonial-card">
+        <p>"I learned DevOps skills that I apply daily at work."</p>
+        <h4>– Alex P.</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div data-include="/footer.html"></div>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+</body>

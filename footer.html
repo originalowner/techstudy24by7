@@ -1,0 +1,139 @@
+<!-- ===== Footer ===== -->
+<footer style="
+  background:linear-gradient(135deg,#0d1b2a,#1b263b,#415a77);
+  color:#e0e8f9;
+  padding:50px 20px 25px;
+  font-family:Segoe UI, sans-serif;
+">
+
+  <div style="
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:40px;
+    max-width:1300px;
+    margin:auto;
+  ">
+
+    <!-- Brand -->
+    <div>
+      <a href="/">
+        <img src="/logo.png" alt="TechStudy24By7"
+          style="height:80px;margin-bottom:10px;">
+      </a>
+
+      <p style="opacity:0.8;margin-bottom:14px;">
+        Learn anytime, anywhere with expert-led online courses.
+      </p>
+
+      <!-- Social -->
+      <div>
+        <a href="#" style="font-size:20px;margin-right:12px;color:#e0e8f9;display:inline-block;"
+          onmouseover="this.style.color='#00d4ff';this.style.transform='translateY(-3px)'"
+          onmouseout="this.style.color='#e0e8f9';this.style.transform='translateY(0)'"
+        ><i class="fa-brands fa-facebook"></i></a>
+
+        <a href="#" style="font-size:20px;margin-right:12px;color:#e0e8f9;display:inline-block;"
+          onmouseover="this.style.color='#00d4ff';this.style.transform='translateY(-3px)'"
+          onmouseout="this.style.color='#e0e8f9';this.style.transform='translateY(0)'"
+        ><i class="fa-brands fa-twitter"></i></a>
+
+        <a href="#" style="font-size:20px;margin-right:12px;color:#e0e8f9;display:inline-block;"
+          onmouseover="this.style.color='#00d4ff';this.style.transform='translateY(-3px)'"
+          onmouseout="this.style.color='#e0e8f9';this.style.transform='translateY(0)'"
+        ><i class="fa-brands fa-github"></i></a>
+
+        <a href="#" style="font-size:20px;color:#e0e8f9;display:inline-block;"
+          onmouseover="this.style.color='#00d4ff';this.style.transform='translateY(-3px)'"
+          onmouseout="this.style.color='#e0e8f9';this.style.transform='translateY(0)'"
+        ><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+
+    <!-- Links -->
+    <div>
+      <h3 style="color:#fff;margin-bottom:12px;">Courses</h3>
+      <a href="/courses/programming/" style="display:block;color:#ccd6f6;text-decoration:none;margin-bottom:8px;"
+        onmouseover="this.style.color='#00d4ff';this.style.paddingLeft='5px'"
+        onmouseout="this.style.color='#ccd6f6';this.style.paddingLeft='0'">Programming</a>
+
+      <a href="/courses/devops/" style="display:block;color:#ccd6f6;text-decoration:none;margin-bottom:8px;"
+        onmouseover="this.style.color='#00d4ff';this.style.paddingLeft='5px'"
+        onmouseout="this.style.color='#ccd6f6';this.style.paddingLeft='0'">DevOps</a>
+
+      <a href="/courses/design/" style="display:block;color:#ccd6f6;text-decoration:none;margin-bottom:8px;"
+        onmouseover="this.style.color='#00d4ff';this.style.paddingLeft='5px'"
+        onmouseout="this.style.color='#ccd6f6';this.style.paddingLeft='0'">Design</a>
+
+      <a href="/courses/data-science/" style="display:block;color:#ccd6f6;text-decoration:none;"
+        onmouseover="this.style.color='#00d4ff';this.style.paddingLeft='5px'"
+        onmouseout="this.style.color='#ccd6f6';this.style.paddingLeft='0'">Data Science</a>
+    </div>
+
+    <!-- Company -->
+    <div>
+      <h3 style="color:#fff;margin-bottom:12px;">Company</h3>
+      <a href="/about-us/" style="display:block;color:#ccd6f6;text-decoration:none;margin-bottom:8px;"
+        onmouseover="this.style.color='#00d4ff';this.style.paddingLeft='5px'"
+        onmouseout="this.style.color='#ccd6f6';this.style.paddingLeft='0'">About Us</a>
+
+      <a href="/blog/" style="display:block;color:#ccd6f6;text-decoration:none;margin-bottom:8px;"
+        onmouseover="this.style.color='#00d4ff';this.style.paddingLeft='5px'"
+        onmouseout="this.style.color='#ccd6f6';this.style.paddingLeft='0'">Blog</a>
+
+      <a href="/careers/" style="display:block;color:#ccd6f6;text-decoration:none;margin-bottom:8px;"
+        onmouseover="this.style.color='#00d4ff';this.style.paddingLeft='5px'"
+        onmouseout="this.style.color='#ccd6f6';this.style.paddingLeft='0'">Careers</a>
+
+      <a href="/contact-us/" style="display:block;color:#ccd6f6;text-decoration:none;"
+        onmouseover="this.style.color='#00d4ff';this.style.paddingLeft='5px'"
+        onmouseout="this.style.color='#ccd6f6';this.style.paddingLeft='0'">Contact</a>
+    </div>
+
+    <!-- Newsletter -->
+    <div>
+      <h3 style="color:#fff;margin-bottom:12px;">Stay Updated</h3>
+      <p style="opacity:0.85;margin-bottom:12px;">
+        Subscribe to our newsletter for latest courses & offers.
+      </p>
+
+      <div style="position:relative;background:rgba(255,255,255,0.07);border-radius:6px;">
+        <input type="email" id="newsletterEmail" placeholder="Your email..."
+          style="width:100%;padding:12px 120px 12px 12px;background:transparent;border:none;color:#fff;">
+
+        <button onclick="subscribeNewsletter()"
+          style="position:absolute;right:6px;top:50%;transform:translateY(-50%);
+                 background:#00d4ff;border:none;padding:8px 16px;font-weight:bold;
+                 border-radius:6px;cursor:pointer;"
+          onmouseover="this.style.background='#00a6d6'"
+          onmouseout="this.style.background='#00d4ff'">Subscribe</button>
+      </div>
+
+      <p id="newsletterMessage" style="margin-top:10px;font-size:14px;min-height:20px;"></p>
+    </div>
+
+  </div>
+
+  <div style="text-align:center;margin-top:40px;padding-top:20px;
+              border-top:1px solid rgba(255,255,255,0.15);opacity:0.8;">
+    © 2026 TechStudy24By7 — Learn Anytime, Anywhere.
+  </div>
+
+  <!-- ===== Inline Script ===== -->
+  <script>
+    function subscribeNewsletter() {
+      const email = document.getElementById("newsletterEmail").value;
+      const message = document.getElementById("newsletterMessage");
+
+      if (!email.includes("@") || email.length < 5) {
+        message.style.color = "#ff6b6b";
+        message.textContent = "Please enter a valid email!";
+        return;
+      }
+
+      message.style.color = "#00ffcc";
+      message.textContent = "Thank you for subscribing! 🎉";
+      document.getElementById("newsletterEmail").value = "";
+    }
+  </script>
+
+</footer>

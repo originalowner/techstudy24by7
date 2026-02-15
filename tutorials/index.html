@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TechStudy24By7 | Programming Tutorials</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- INLINE CSS -->
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fa;
+      color: #222;
+    }
+    
+    header {
+      background: #0b132b;
+      color: #fff;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h2 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    nav a {
+      color: #cbd5e1;
+      margin-left: 20px;
+      text-decoration: none;
+    }
+
+    section.hero {
+      text-align: center;
+      padding: 70px 20px;
+      background: linear-gradient(135deg, #1d4ed8, #2563eb);
+      color: white;
+    }
+
+    section.hero h1 {
+      font-size: 40px;
+      margin-bottom: 12px;
+    }
+
+    section.hero p {
+      font-size: 18px;
+      max-width: 700px;
+      margin: 0 auto;
+      opacity: 0.95;
+    }
+
+    section.tutorials {
+      padding: 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .card span {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 6px 12px;
+      font-size: 12px;
+      background: #e5e7eb;
+      border-radius: 20px;
+    }
+
+    footer {
+      background: #0b132b;
+      color: #cbd5e1;
+      text-align: center;
+      padding: 22px;
+      font-size: 14px;
+    }
+  </style>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <script defer src="/script.js"></script>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <div data-include="/header.html"></div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Learn Technology 24×7</h1>
+    <p>Master programming and modern technologies with clear, structured tutorials — only on <strong>TechStudy24By7</strong>.</p>
+  </section>
+
+  <!-- TUTORIALS GRID -->
+  <section class="tutorials">
+    
+    <!-- Python Card -->
+    <div class="card" onclick="location.href='/tutorials/tutorial/'">
+      <h3>Python Programming</h3>
+      <p>Learn Python step by step with practical examples and projects.</p>
+      <span>Beginner Friendly</span>
+    </div>
+
+    <!-- JavaScript Card -->
+    <div class="card" onclick="location.href='/tutorials/javascript'">
+      <h3>JavaScript Mastery</h3>
+      <p>Learn JavaScript for frontend, backend, and full-stack development.</p>
+      <span>Most Popular</span>
+    </div>
+
+    <!-- HTML & CSS Card -->
+    <div class="card" onclick="location.href='/tutorials/html-css'">
+      <h3>HTML & CSS</h3>
+      <p>Build responsive and modern websites from scratch.</p>
+      <span>Web Development</span>
+    </div>
+
+    <!-- C Programming Card -->
+    <div class="card" onclick="location.href='/tutorials/c'">
+      <h3>C Programming</h3>
+      <p>Learn core programming concepts and logic building.</p>
+      <span>Core Concepts</span>
+    </div>
+
+    <!-- Java Card -->
+    <div class="card" onclick="location.href='/tutorials/java'">
+      <h3>Java Programming</h3>
+      <p>Learn object-oriented programming and backend development.</p>
+      <span>OOP</span>
+    </div>
+
+    <!-- DSA Card -->
+    <div class="card" onclick="location.href='/tutorials/dsa'">
+      <h3>Data Structures & Algorithms</h3>
+      <p>Improve problem-solving skills and crack coding interviews.</p>
+      <span>Advanced</span>
+    </div>
+    
+  </section>
+
+  <!-- Footer -->
+  <div data-include="/footer.html"></div>
+
+  <!-- INLINE JS -->
+  <script>
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('mouseenter', function () {
+        this.style.transform = 'translateY(-6px)';
+      });
+      card.addEventListener('mouseleave', function () {
+        this.style.transform = 'translateY(0)';
+      });
+    });
+  </script>
+
+</body>
+</html>
