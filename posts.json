@@ -1,0 +1,119 @@
+[
+  {
+    "id": 1,
+    "title": "20 Useful Linux Commands for Beginners",
+    "category": "Linux",
+    "date": "Feb 5, 2026",
+    "image": "image.webp",
+    "excerpt": "Linux commands are powerful tools that allow users to interact with the system efficiently.",
+    "featured": true
+  },
+  {
+    "id": 2,
+    "title": "How to Secure SSH Server in Linux",
+    "category": "Security",
+    "date": "Feb 4, 2026",
+    "image": "image.webp",
+    "excerpt": "SSH is commonly used to manage Linux servers remotely.",
+    "featured": false
+  },
+  {
+    "id": 3,
+    "title": "Docker vs Podman: What’s the Difference?",
+    "category": "DevOps",
+    "date": "Feb 3, 2026",
+    "image": "image.webp",
+    "excerpt": "Podman is emerging as a Docker alternative with daemon-less architecture.",
+    "featured": false
+  },
+  {
+    "id": 4,
+    "title": "Best VS Code Extensions for Developers",
+    "category": "Programming",
+    "date": "Feb 2, 2026",
+    "image": "image.webp",
+    "excerpt": "VS Code extensions can significantly boost productivity.",
+    "featured": false
+  },
+  {
+    "id": 2,
+    "title": "How to Secure SSH Server in Linux",
+    "category": "Security",
+    "date": "Feb 4, 2026",
+    "image": "image.webp",
+    "excerpt": "SSH is commonly used to manage Linux servers remotely.",
+    "featured": false
+  },
+  {
+    "id": 3,
+    "title": "Docker vs Podman: What’s the Difference?",
+    "category": "DevOps",
+    "date": "Feb 3, 2026",
+    "image": "image.webp",
+    "excerpt": "Podman is emerging as a Docker alternative with daemon-less architecture.",
+    "featured": false
+  },
+  {
+    "id": 4,
+    "title": "Best VS Code Extensions for Developers",
+    "category": "Programming",
+    "date": "Feb 2, 2026",
+    "image": "image.webp",
+    "excerpt": "VS Code extensions can significantly boost productivity.",
+    "featured": false
+  },
+  {
+    "id": 2,
+    "title": "How to Secure SSH Server in Linux",
+    "category": "Security",
+    "date": "Feb 4, 2026",
+    "image": "image.webp",
+    "excerpt": "SSH is commonly used to manage Linux servers remotely.",
+    "featured": false
+  },
+  {
+    "id": 3,
+    "title": "Docker vs Podman: What’s the Difference?",
+    "category": "DevOps",
+    "date": "Feb 3, 2026",
+    "image": "image.webp",
+    "excerpt": "Podman is emerging as a Docker alternative with daemon-less architecture.",
+    "featured": false
+  },
+  {
+    "id": 4,
+    "title": "Best VS Code Extensions for Developers",
+    "category": "Programming",
+    "date": "Feb 2, 2026",
+    "image": "image.webp",
+    "excerpt": "VS Code extensions can significantly boost productivity.",
+    "featured": false
+  },
+  {
+    "id": 2,
+    "title": "How to Secure SSH Server in Linux",
+    "category": "Security",
+    "date": "Feb 4, 2026",
+    "image": "image.webp",
+    "excerpt": "SSH is commonly used to manage Linux servers remotely.",
+    "featured": false
+  },
+  {
+    "id": 3,
+    "title": "Docker vs Podman: What’s the Difference?",
+    "category": "DevOps",
+    "date": "Feb 3, 2026",
+    "image": "image.webp",
+    "excerpt": "Podman is emerging as a Docker alternative with daemon-less architecture.",
+    "featured": false
+  },
+  {
+    "id": 4,
+    "title": "Best VS Code Extensions for Developers",
+    "category": "Programming",
+    "date": "Feb 2, 2026",
+    "image": "image.webp",
+    "excerpt": "VS Code extensions can significantly boost productivity.",
+    "featured": false
+  }
+]
