@@ -6,348 +6,90 @@
   <title>TechStudy24By7 — Master Skills Anytime, Anywhere</title>
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/favicon.png">
-  <!-- <link rel="stylesheet" href="/style.css"> -->
+  <link rel="stylesheet" href="/style.css">
   <script defer src="/script.js"></script>
-  <style>
-  	* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #fff;
-  color: #222;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.container {
-  width: 1200px;
-  max-width: 96%;
-  margin: auto;
-}
-
-/* Top */
-.top-bar {
-  background: #f5f5f5;
-  font-size: 13px;
-  padding: 6px 0;
-}
-
-/* Header */
-.header {
-  padding: 15px 0;
-}
-
-.logo {
-  font-size: 36px;
-  color: #006699;
-}
-
-/* Nav */
-.nav {
-  background: #006699;
-}
-
-.nav a {
-  color: #fff;
-  padding: 12px 15px;
-  display: inline-block;
-}
-
-.nav a:hover {
-  background: #00557a;
-}
-
-/* Layout */
-.main {
-  display: grid;
-  grid-template-columns: 100% 0%;
-  gap: 30px;
-  margin-top: 30px;
-}
-
-/* Search */
-#search {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  margin-bottom: 20px;
-}
-
-/* Featured */
-.featured-post img {
-  width: 100%;
-  height: 320px;
-  object-fit: cover;
-}
-
-.featured-post h2 {
-  font-size: 32px;
-  margin: 10px 0;
-}
-
-/* Grid */
-.posts-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 25px;
-}
-
-/* Post Card */
-.post {
-  border: 1px solid #ddd;
-  padding: 20px;
-  background: #fff;
-  transition: transform .2s ease, box-shadow .2s ease;
-}
-
-.post:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 18px rgba(0,0,0,.12);
-}
-
-.featured-img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  margin-bottom: 10px;
-}
-
-.post h2 {
-  margin: 5px 0;
-}
-
-.meta {
-  font-size: 13px;
-  color: #777;
-}
-
-/* Sidebar */
-.sidebar {
-  position: sticky;
-  top: 20px;
-}
-
-.sidebar h3 {
-  border-bottom: 2px solid #006699;
-  padding-bottom: 5px;
-}
-
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-}
-
-.sidebar li {
-  padding: 6px 0;
-  border-bottom: 1px dotted #ccc;
-}
-
-/* Pagination */
-.pagination {
-  display: flex;
-  justify-content: space-between;
-  margin: 30px 0;
-}
-
-.pagination button {
-  padding: 8px 14px;
-  border: 1px solid #006699;
-  background: #fff;
-  cursor: pointer;
-}
-
-.pagination button:hover {
-  background: #006699;
-  color: #fff;
-}
-
-/* Footer */
-.footer {
-  background: #f5f5f5;
-  padding: 20px 0;
-  margin-top: 40px;
-  font-size: 14px;
-}
-
-/* Post page */
-.post-page img {
-  width: 100%;
-  margin: 20px 0;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .main {
-    grid-template-columns: 1fr;
-  }
-  .posts-grid {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
 </head>
 <body>
 
   <!-- Header -->
   <div data-include="/header.html"></div>
 
-  <div class="container main">
-
-  <main class="content">
-
-    <!-- Search -->
-    <input id="search" type="text" placeholder="Search articles...">
-
-    <!-- Featured -->
-    <div id="featured-post"></div>
-
-    <!-- Posts -->
-    <div id="posts" class="posts-grid"></div>
-
-    <!-- Pagination -->
-    <div class="pagination">
-      <button id="prev">← Prev</button>
-      <span id="page-info"></span>
-      <button id="next">Next →</button>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Master New Skills Online</h1>
+    <p>Join thousands of learners and access top-rated courses anytime, anywhere.</p>
+    <div class="cta-buttons">
+      <a href="/courses/">Browse Courses</a>
+      <a href="/register/">Get Started</a>
     </div>
+  </section>
 
-  </main>
+  <!-- Featured Courses -->
+  <section class="courses">
+    <h2>Featured Courses</h2>
+    <div class="course-grid">
+      <div class="course-card">
+        <img src="/complete-python-bootcamp.jpeg" alt="Complete Python Bootcamp">
+        <div class="course-content">
+          <h3>Complete Python Bootcamp</h3>
+          <p>Learn Python from scratch and build real-world projects.</p>
+          <a href="/courses/complete-python-bootcamp/">Enroll Now</a>
+        </div>
+      </div>
+      <div class="course-card">
+        <img src="/devops-fundamentals.png" alt="DevOps Fundamentals">
+        <div class="course-content">
+          <h3>DevOps Fundamentals</h3>
+          <p>Master Linux, Docker, Kubernetes, and CI/CD pipelines.</p>
+          <a href="/courses/devops-fundamentals/">Enroll Now</a>
+        </div>
+      </div>
+      <div class="course-card">
+        <img src="/fullstack-web-development.png" alt="Full-Stack Web Development">
+        <div class="course-content">
+          <h3>Full-Stack Web Development</h3>
+          <p>Build responsive websites and web apps with modern technologies.</p>
+          <a href="/courses/fullstack-web-development/">Enroll Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <h3>Popular Posts</h3>
-    <ul>
-      <li>Fix Permission Denied Error</li>
-      <li>Linux Networking Basics</li>
-      <li>Top Docker Commands</li>
-    </ul>
-  </aside>
+  <!-- Categories Section -->
+  <section class="categories">
+    <h2>Explore Categories</h2>
+    <div class="category-list">
+      <a href="/categories/programming/">Programming</a>
+      <a href="/categories/devops/">DevOps</a>
+      <a href="/categories/data-science/">Data Science</a>
+      <a href="/categories/design/">Design</a>
+      <a href="/categories/business/">Business</a>
+    </div>
+  </section>
 
-</div>
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <h2>What Our Students Say</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <p>"This platform helped me land my dream job in tech!"</p>
+        <h4>– Sarah L.</h4>
+      </div>
+      <div class="testimonial-card">
+        <p>"Amazing courses and instructors. Highly recommended."</p>
+        <h4>– John D.</h4>
+      </div>
+      <div class="testimonial-card">
+        <p>"I learned DevOps skills that I apply daily at work."</p>
+        <h4>– Alex P.</h4>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
   <div data-include="/footer.html"></div>
 
-  <script>
-  	const postsBox = document.getElementById("posts");
-const featuredBox = document.getElementById("featured-post");
-const searchInput = document.getElementById("search");
-const prevBtn = document.getElementById("prev");
-const nextBtn = document.getElementById("next");
-const pageInfo = document.getElementById("page-info");
-
-let posts = [];
-let filtered = [];
-let page = 1;
-const perPage = 4;
-
-/* Date */
-const dateEl = document.getElementById("date");
-if (dateEl) {
-  dateEl.textContent = new Date().toDateString();
-}
-
-/* Home page logic */
-if (postsBox) {
-  fetch("posts.json")
-    .then(res => res.json())
-    .then(data => {
-      posts = data;
-      const featured = posts.find(p => p.featured);
-      filtered = posts.filter(p => !p.featured);
-
-      if (featured) {
-        featuredBox.innerHTML = `
-          <article class="post featured-post">
-            <a href="post.html?id=${featured.id}">
-              <img src="${featured.image}">
-              <h2>${featured.title}</h2>
-            </a>
-            <p class="meta">${featured.date} · ${featured.category}</p>
-            <p>${featured.excerpt}</p>
-          </article>
-        `;
-      }
-      render();
-    });
-}
-
-/* Render posts */
-function render() {
-  postsBox.innerHTML = "";
-  const start = (page - 1) * perPage;
-  const end = start + perPage;
-
-  filtered.slice(start, end).forEach(post => {
-    postsBox.innerHTML += `
-      <article class="post">
-        <a href="post.html?id=${post.id}">
-          <img src="${post.image}" class="featured-img">
-          <h2>${post.title}</h2>
-        </a>
-        <p class="meta">${post.date} · ${post.category}</p>
-        <p>${post.excerpt}</p>
-      </article>
-    `;
-  });
-
-  pageInfo.textContent = `Page ${page} of ${Math.ceil(filtered.length / perPage)}`;
-}
-
-/* Pagination */
-nextBtn.onclick = () => {
-  if (page * perPage < filtered.length) {
-    page++;
-    render();
-  }
-};
-
-prevBtn.onclick = () => {
-  if (page > 1) {
-    page--;
-    render();
-  }
-};
-
-/* Search */
-if (searchInput) {
-  searchInput.addEventListener("input", e => {
-    const q = e.target.value.toLowerCase();
-    filtered = posts.filter(p =>
-      !p.featured &&
-      (p.title.toLowerCase().includes(q) ||
-       p.category.toLowerCase().includes(q))
-    );
-    page = 1;
-    render();
-  });
-}
-
-/* Post page */
-const postContent = document.getElementById("post-content");
-if (postContent) {
-  const id = new URLSearchParams(window.location.search).get("id");
-
-  fetch("posts.json")
-    .then(res => res.json())
-    .then(posts => {
-      const post = posts.find(p => p.id == id);
-      if (!post) return;
-
-      postContent.innerHTML = `
-        <h1>${post.title}</h1>
-        <p class="meta">${post.date} · ${post.category}</p>
-        <img src="${post.image}">
-        <p>${post.excerpt}</p>
-      `;
-    });
-}
-</script>
-
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
 </body>
