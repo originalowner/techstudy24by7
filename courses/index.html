@@ -1,109 +1,397 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Courses | TechStudy24By7</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TechStudy24By7 - Courses</title>
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/favicon.png">
+<style>
 
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="/style.css">
+*{
+margin:0;
+box-sizing:border-box;
+font-family:"Segoe UI",sans-serif;
+}
 
-  <!-- JS -->
-  <script defer src="/script.js"></script>
+body{
+font-family:Arial, Helvetica, sans-serif;
+background:#f7f7f7;
+color:#333;
+}
+
+/* FEATURED COURSE */
+
+.featured{
+padding:40px 10%;
+}
+
+.featured-card{
+display:flex;
+background:white;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.featured img{
+width:50%;
+object-fit:cover;
+}
+
+.featured-content{
+padding:30px;
+}
+
+.featured-content h2{
+margin-top:10px;
+}
+
+.read-btn{
+display:inline-block;
+margin-top:15px;
+background:#000;
+color:white;
+padding:10px 18px;
+border-radius:6px;
+text-decoration:none;
+}
+
+/* FILTERS */
+
+.filters{
+padding:20px 10%;
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.filters button{
+padding:8px 16px;
+border:none;
+background:#e6e6e6;
+border-radius:20px;
+cursor:pointer;
+}
+
+.filters button.active{
+background:black;
+color:white;
+}
+
+/* SEARCH */
+
+.search{
+padding:0 10% 20px 10%;
+}
+
+.search input{
+width:100%;
+padding:12px;
+border-radius:8px;
+border:1px solid #ddd;
+}
+
+/* COURSE GRID */
+
+.course-grid{
+padding:10px 10% 40px 10%;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.course-card{
+display:block;
+text-decoration:none;
+color:inherit;
+}
+
+.course-card:hover{
+transform:translateY(-5px);
+}
+
+.course-card img{
+width:100%;
+height:180px;
+object-fit:cover;
+}
+
+.course-content{
+padding:18px;
+}
+
+.tag{
+font-size:12px;
+background:#eee;
+padding:4px 10px;
+border-radius:20px;
+}
+
+.meta{
+margin-top:10px;
+font-size:12px;
+color:#777;
+}
+
+/* PAGINATION */
+
+.pagination{
+text-align:center;
+padding-bottom:50px;
+}
+
+.pagination button{
+padding:10px 15px;
+margin:5px;
+border:none;
+background:#ddd;
+cursor:pointer;
+border-radius:6px;
+}
+
+.pagination button.active{
+background:black;
+color:white;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.featured-card{
+flex-direction:column;
+}
+
+.featured img{
+width:100%;
+height:250px;
+}
+
+}
+
+</style>
 </head>
+
 <body>
 
-  <!-- Header -->
-  <div data-include="/header.html"></div>
+<!-- Header -->
+<div data-include="/header.html"></div>
 
-  <!-- Page Hero -->
-  <section class="page-hero">
-    <h1>Our Courses</h1>
-    <p>Learn in-demand skills with industry-focused, practical courses.</p>
-  </section>
 
-  <!-- Courses Listing -->
-  <section class="courses">
-    <div class="course-grid">
+<!-- FEATURED COURSE -->
 
-      <!-- Course 1 -->
-      <div class="course-card">
-        <img src="/complete-python-bootcamp.jpeg" alt="Complete Python Bootcamp">
-        <div class="course-content">
-          <h3>Complete Python Bootcamp</h3>
-          <p>Learn Python from basics to advanced with real-world projects.</p>
-          <a href="/courses/complete-python-bootcamp/">View Course</a>
-        </div>
-      </div>
+<section class="featured">
+<div class="featured-card">
 
-      <!-- Course 2 -->
-      <div class="course-card">
-        <img src="/devops-fundamentals.png" alt="DevOps Fundamentals">
-        <div class="course-content">
-          <h3>DevOps Fundamentals</h3>
-          <p>Master Linux, Docker, Kubernetes, and CI/CD pipelines.</p>
-          <a href="/courses/devops-fundamentals/">View Course</a>
-        </div>
-      </div>
+<img src="https://picsum.photos/800/500?course">
 
-      <!-- Course 3 -->
-      <div class="course-card">
-        <img src="/fullstack-web-development.png" alt="Full-Stack Web Development">
-        <div class="course-content">
-          <h3>Full-Stack Web Development</h3>
-          <p>Build responsive websites and web applications from scratch.</p>
-          <a href="/courses/fullstack-web-development/">View Course</a>
-        </div>
-      </div>
+<div class="featured-content">
+<span class="tag">Featured Course</span>
 
-      <!-- Course 4 -->
-      <div class="course-card">
-        <img src="/data-science-course.png" alt="Data Science">
-        <div class="course-content">
-          <h3>Data Science & Machine Learning</h3>
-          <p>Analyze data, build models, and work with real datasets.</p>
-          <a href="/courses/data-science/">View Course</a>
-        </div>
-      </div>
+<h2>Complete DevOps Bootcamp 2026</h2>
 
-      <!-- Course 5 -->
-      <div class="course-card">
-        <img src="/ui-ux-design.png" alt="UI UX Design">
-        <div class="course-content">
-          <h3>UI / UX Design</h3>
-          <p>Design beautiful, user-friendly interfaces and experiences.</p>
-          <a href="/courses/ui-ux-design/">View Course</a>
-        </div>
-      </div>
+<p>
+Master Linux, Docker, Kubernetes, CI/CD pipelines and AWS to become a professional DevOps Engineer.
+</p>
 
-      <!-- Course 6 -->
-      <div class="course-card">
-        <img src="/business-analytics.png" alt="Business Analytics">
-        <div class="course-content">
-          <h3>Business Analytics</h3>
-          <p>Make data-driven decisions with analytics tools and techniques.</p>
-          <a href="/courses/business-analytics/">View Course</a>
-        </div>
-      </div>
+<a href="/courses/course/" class="read-btn">
+View Course
+</a>
 
-    </div>
-  </section>
+</div>
 
-  <!-- Call to Action -->
-  <section class="cta-section">
-    <h2>Start Learning Today</h2>
-    <p>Upgrade your skills and advance your career with TechStudy24By7.</p>
-    <a href="/register/" class="cta-btn">Get Started</a>
-  </section>
+</div>
+</section>
 
-  <!-- Footer -->
-  <div data-include="/footer.html"></div>
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<!-- SEARCH -->
+
+<div class="search">
+<input type="text" id="searchInput" placeholder="Search courses...">
+</div>
+
+
+<!-- FILTERS -->
+
+<div class="filters">
+<button class="active" onclick="filterCourses('all')">All</button>
+<button onclick="filterCourses('Linux')">Linux</button>
+<button onclick="filterCourses('AWS')">AWS</button>
+<button onclick="filterCourses('DevOps')">DevOps</button>
+</div>
+
+
+<!-- COURSE GRID -->
+
+<section class="course-grid" id="courseGrid"></section>
+
+
+<!-- PAGINATION -->
+
+<div class="pagination" id="pagination"></div>
+
+
+<!-- Footer -->
+
+<div data-include="/footer.html"></div>
+
+
+<script>
+
+const courses = [
+
+{title:"Linux for Beginners",category:"Linux", url:"https://www.website.com/courses/linux-for-beginners/",image:"https://picsum.photos/400/300?1"},
+
+{title:"AWS Cloud Fundamentals",category:"AWS",url:"https://www.website.com/courses/linux-for-beginners/",image:"https://picsum.photos/400/300?2"},
+
+{title:"DevOps Complete Guide",category:"DevOps",url:"https://www.website.com/courses/linux-for-beginners/",image:"https://picsum.photos/400/300?3"},
+
+{title:"Linux Administration",category:"Linux",url:"https://www.website.com/courses/linux-for-beginners/",image:"https://picsum.photos/400/300?4"},
+
+{title:"AWS Certified Solutions Architect",category:"AWS",url:"https://www.website.com/courses/linux-for-beginners/",image:"https://picsum.photos/400/300?5"},
+
+{title:"Docker & Kubernetes Bootcamp",category:"DevOps",url:"https://www.website.com/courses/linux-for-beginners/",image:"https://picsum.photos/400/300?6"},
+
+{title:"Advanced Linux Networking",category:"Linux",url:"https://www.website.com/courses/linux-for-beginners/",image:"https://picsum.photos/400/300?7"},
+
+{title:"AWS DevOps Engineer",category:"AWS",url:"https://www.website.com/courses/linux-for-beginners/",image:"https://picsum.photos/400/300?8"},
+
+{title:"CI/CD Pipelines Masterclass",category:"DevOps",url:"https://www.website.com/courses/linux-for-beginners/",image:"https://picsum.photos/400/300?9"}
+
+]
+
+let currentPage = 1
+const coursesPerPage = 6
+let filteredCourses = courses
+
+
+function displayCourses(){
+
+const grid = document.getElementById("courseGrid")
+grid.innerHTML=""
+
+const start = (currentPage-1)*coursesPerPage
+const end = start + coursesPerPage
+
+const paginated = filteredCourses.slice(start,end)
+
+paginated.forEach(course=>{
+
+grid.innerHTML+=`
+
+<a href="${course.url}" class="course-card">
+
+<img src="${course.image}">
+
+<div class="course-content">
+
+<span class="tag">${course.category}</span>
+
+<h3>${course.title}</h3>
+
+<div class="meta">12 Lessons • Beginner Friendly</div>
+
+</div>
+
+</a>
+
+`
+
+})
+
+displayPagination()
+
+}
+
+
+function displayPagination(){
+
+const totalPages = Math.ceil(filteredCourses.length/coursesPerPage)
+
+const pagination = document.getElementById("pagination")
+
+pagination.innerHTML=""
+
+for(let i=1;i<=totalPages;i++){
+
+pagination.innerHTML+=`
+<button onclick="changePage(${i})" class="${i===currentPage?'active':''}">
+${i}
+</button>
+`
+
+}
+
+}
+
+
+function changePage(page){
+currentPage=page
+displayCourses()
+}
+
+
+function filterCourses(category){
+
+document.querySelectorAll(".filters button")
+.forEach(btn=>btn.classList.remove("active"))
+
+event.target.classList.add("active")
+
+if(category==="all"){
+filteredCourses=courses
+}
+else{
+filteredCourses=courses.filter(course=>course.category===category)
+}
+
+currentPage=1
+
+displayCourses()
+
+}
+
+
+document.getElementById("searchInput")
+.addEventListener("input",function(){
+
+const value=this.value.toLowerCase()
+
+filteredCourses=courses.filter(course=>
+course.title.toLowerCase().includes(value)
+)
+
+currentPage=1
+
+displayCourses()
+
+})
+
+
+displayCourses()
+
+</script>
+
+
+<script>
+
+/* Header Footer Include */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+document.querySelectorAll("[data-include]").forEach(el => {
+
+fetch(el.dataset.include)
+.then(res => res.text())
+.then(html => el.innerHTML = html)
+.catch(err => console.error("Include error:", err))
+
+})
+
+})
+
+</script>
 
 </body>
 </html>

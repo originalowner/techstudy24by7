@@ -4,10 +4,105 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TechStudy24By7 — Master Skills Anytime, Anywhere</title>
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/favicon.png">
-  <link rel="stylesheet" href="/style.css">
-  <script defer src="/script.js"></script>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <style>
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 60px 20px;
+}
+.contact-page {
+  background: #0f172a;
+  color: #e5e7eb;
+}
+.contact-page h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+.contact-page h2 {
+  font-size: 24px;
+  margin-top: 40px;
+  margin-bottom: 12px;
+  color: #00d4ff;
+}
+.contact-page p {
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 16px;
+  color: #d1d5db;
+}
+.contact-info {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 16px 20px;
+  border-radius: 8px;
+  margin: 24px 0;
+}
+.contact-form {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+}
+.contact-form input,
+.contact-form textarea {
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  outline: none;
+  color: #ffffff;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+.contact-form button {
+  width: fit-content;
+  padding: 12px 22px;
+  background: #00d4ff;
+  border: none;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+.contact-form button:hover {
+  background: #00a6d6;
+}
+.support-hours {
+  margin-top: 30px;
+  font-size: 14px;
+  color: #9ca3af;
+}
+@media (max-width: 768px) {
+  .container {
+    padding: 40px 16px;
+  }
+  .contact-page h1 {
+    font-size: 28px;
+  }
+  .contact-page h2 {
+    font-size: 20px;
+  }
+}
+#formMessage {
+  margin-top: 16px;
+  font-size: 15px;
+  color: #00d4ff;
+  min-height: 20px;
+}
+#formMessage.success {
+  color: #22c55e;
+}
+  </style>
 </head>
 <body>
 
@@ -53,7 +148,18 @@
   <!-- Footer -->
   <div data-include="/footer.html"></div>
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    
+  <script>
+/* ----------------------------
+   Load Header & Footer Includes
+----------------------------- */
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("[data-include]").forEach(el => {
+    fetch(el.dataset.include)
+      .then(res => res.text())
+      .then(html => el.innerHTML = html)
+      .catch(err => console.error("Include error:", err));
+  });
+});
+</script>
+
 </body>

@@ -1,42 +1,473 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog | TechStudy24By7</title>
-    
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/favicon.png">
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="/script.js"></script>
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TechStudy24By7 - Blogs</title>
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
 
+<style>
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+margin:0;
+background:#f7f7f7;
+color:#333;
+}
+
+/* FEATURED BLOG */
+
+.featured{
+padding:40px 10%;
+}
+
+.featured-card{
+display:flex;
+background:white;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.featured img{
+width:50%;
+object-fit:cover;
+}
+
+.featured-content{
+padding:30px;
+}
+
+.featured-content h2{
+margin-top:10px;
+}
+
+.read-btn{
+display:inline-block;
+margin-top:15px;
+background:#000;
+color:white;
+padding:10px 18px;
+border-radius:6px;
+text-decoration:none;
+}
+
+/* FILTER */
+
+.filters{
+padding:20px 10%;
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.filters button{
+padding:8px 16px;
+border:none;
+background:#e6e6e6;
+border-radius:20px;
+cursor:pointer;
+}
+
+.filters button.active{
+background:black;
+color:white;
+}
+
+/* SEARCH */
+
+.search{
+padding:0 10% 20px 10%;
+}
+
+.search input{
+width:100%;
+padding:12px;
+border-radius:8px;
+border:1px solid #ddd;
+}
+
+/* BLOG GRID */
+
+.blog-grid{
+padding:10px 10% 40px 10%;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.blog-card{
+background:white;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 8px 25px rgba(0,0,0,0.06);
+transition:0.3s;
+}
+
+.blog-card:hover{
+transform:translateY(-5px);
+}
+
+.blog-card img{
+width:100%;
+height:180px;
+object-fit:cover;
+}
+
+.blog-content{
+padding:18px;
+}
+
+.tag{
+font-size:12px;
+background:#eee;
+padding:4px 10px;
+border-radius:20px;
+}
+
+.meta{
+margin-top:10px;
+font-size:12px;
+color:#777;
+}
+
+/* PAGINATION */
+
+.pagination{
+text-align:center;
+padding-bottom:50px;
+}
+
+.pagination button{
+padding:10px 15px;
+margin:5px;
+border:none;
+background:#ddd;
+cursor:pointer;
+border-radius:6px;
+}
+
+.pagination button.active{
+background:black;
+color:white;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.featured-card{
+flex-direction:column;
+}
+
+.featured img{
+width:100%;
+height:250px;
+}
+
+}
+
+</style>
+</head>
 <body>
 
-<!-- Header -->
+    <!-- Header -->
   <div data-include="/header.html"></div>
 
-<!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <h2>Insights, Tutorials & Infrastructure Stories</h2>
-      <p>Practical guides on cloud, servers, DevOps, and performance.</p>
-    </div>
-  </section>
+<!-- FEATURED BLOG -->
 
-  <!-- Blog Section -->
-  <section class="blog">
-    <div class="container">
-      <h3>Latest Articles</h3>
+<section class="featured">
+<div class="featured-card">
+<img src="https://picsum.photos/800/500">
+<div class="featured-content">
+<span class="tag">Featured</span>
+<h2>How AI is Transforming Modern Web Development</h2>
+<p>Explore how artificial intelligence tools are improving productivity for developers and designers.</p>
+<a href="/blog/post/" class="read-btn">Read Article</a>
+</div>
+</div>
+</section>
 
-      <div class="blog-grid" id="blogGrid">
-        <!-- Blog cards injected by JS -->
-      </div>
-    </div>
-  </section>
+<!-- SEARCH -->
+
+<div class="search">
+<input type="text" id="searchInput" placeholder="Search blogs...">
+</div>
+
+<!-- FILTERS -->
+
+<div class="filters">
+<button class="active" onclick="filterBlogs('all')">All</button>
+<button onclick="filterBlogs('Linux')">Linux</button>
+<button onclick="filterBlogs('AWS')">AWS</button>
+<button onclick="filterBlogs('DevOps')">DevOps</button>
+</div>
+
+<!-- BLOG GRID -->
+
+<section class="blog-grid" id="blogGrid"></section>
+
+<!-- PAGINATION -->
+
+<div class="pagination" id="pagination"></div>
 
 <!-- Footer -->
-<div data-include="/footer.html"></div>
+  <div data-include="/footer.html"></div>
+
+<script>
+
+const blogs = [
+{title:"Top UI Trends 2026",category:"AWS",image:"https://picsum.photos/400/300?1"},
+{title:"Best AI Tools for Developers",category:"Linux",image:"https://picsum.photos/400/300?2"},
+{title:"How to Launch a Startup",category:"DevOps",image:"https://picsum.photos/400/300?3"},
+{title:"Design Systems Explained",category:"AWS",image:"https://picsum.photos/400/300?4"},
+{title:"JavaScript Performance Tips",category:"Linux",image:"https://picsum.photos/400/300?5"},
+{title:"Startup Marketing Guide",category:"DevOps",image:"https://picsum.photos/400/300?6"},
+{title:"CSS Tricks Every Dev Should Know",category:"Linux",image:"https://picsum.photos/400/300?7"},
+{title:"Modern UX Principles",category:"AWS",image:"https://picsum.photos/400/300?8"},
+{title:"Funding Your Startup",category:"DevOps",image:"https://picsum.photos/400/300?9"},
+{title:"Top UI Trends 2026",category:"AWS",image:"https://picsum.photos/400/300?1"},
+{title:"Best AI Tools for Developers",category:"Linux",image:"https://picsum.photos/400/300?2"},
+{title:"How to Launch a Startup",category:"DevOps",image:"https://picsum.photos/400/300?3"},
+{title:"Design Systems Explained",category:"AWS",image:"https://picsum.photos/400/300?4"},
+{title:"JavaScript Performance Tips",category:"Linux",image:"https://picsum.photos/400/300?5"},
+{title:"Startup Marketing Guide",category:"DevOps",image:"https://picsum.photos/400/300?6"},
+{title:"CSS Tricks Every Dev Should Know",category:"Linux",image:"https://picsum.photos/400/300?7"},
+{title:"Modern UX Principles",category:"AWS",image:"https://picsum.photos/400/300?8"},
+{title:"Funding Your Startup",category:"DevOps",image:"https://picsum.photos/400/300?9"},
+{title:"Top UI Trends 2026",category:"AWS",image:"https://picsum.photos/400/300?1"},
+{title:"Best AI Tools for Developers",category:"Linux",image:"https://picsum.photos/400/300?2"},
+{title:"How to Launch a Startup",category:"DevOps",image:"https://picsum.photos/400/300?3"},
+{title:"Design Systems Explained",category:"AWS",image:"https://picsum.photos/400/300?4"},
+{title:"JavaScript Performance Tips",category:"Linux",image:"https://picsum.photos/400/300?5"},
+{title:"Startup Marketing Guide",category:"DevOps",image:"https://picsum.photos/400/300?6"},
+{title:"CSS Tricks Every Dev Should Know",category:"Linux",image:"https://picsum.photos/400/300?7"},
+{title:"Modern UX Principles",category:"AWS",image:"https://picsum.photos/400/300?8"},
+{title:"Funding Your Startup",category:"DevOps",image:"https://picsum.photos/400/300?9"},
+{title:"Top UI Trends 2026",category:"AWS",image:"https://picsum.photos/400/300?1"},
+{title:"Best AI Tools for Developers",category:"Linux",image:"https://picsum.photos/400/300?2"},
+{title:"How to Launch a Startup",category:"DevOps",image:"https://picsum.photos/400/300?3"},
+{title:"Design Systems Explained",category:"AWS",image:"https://picsum.photos/400/300?4"},
+{title:"JavaScript Performance Tips",category:"Linux",image:"https://picsum.photos/400/300?5"},
+{title:"Startup Marketing Guide",category:"DevOps",image:"https://picsum.photos/400/300?6"},
+{title:"CSS Tricks Every Dev Should Know",category:"Linux",image:"https://picsum.photos/400/300?7"},
+{title:"Modern UX Principles",category:"AWS",image:"https://picsum.photos/400/300?8"},
+{title:"Funding Your Startup",category:"DevOps",image:"https://picsum.photos/400/300?9"},
+{title:"Top UI Trends 2026",category:"AWS",image:"https://picsum.photos/400/300?1"},
+{title:"Best AI Tools for Developers",category:"Linux",image:"https://picsum.photos/400/300?2"},
+{title:"How to Launch a Startup",category:"DevOps",image:"https://picsum.photos/400/300?3"},
+{title:"Design Systems Explained",category:"AWS",image:"https://picsum.photos/400/300?4"},
+{title:"JavaScript Performance Tips",category:"Linux",image:"https://picsum.photos/400/300?5"},
+{title:"Startup Marketing Guide",category:"DevOps",image:"https://picsum.photos/400/300?6"},
+{title:"CSS Tricks Every Dev Should Know",category:"Linux",image:"https://picsum.photos/400/300?7"},
+{title:"Modern UX Principles",category:"AWS",image:"https://picsum.photos/400/300?8"},
+{title:"Funding Your Startup",category:"DevOps",image:"https://picsum.photos/400/300?9"},
+{title:"Top UI Trends 2026",category:"AWS",image:"https://picsum.photos/400/300?1"},
+{title:"Best AI Tools for Developers",category:"Linux",image:"https://picsum.photos/400/300?2"},
+{title:"How to Launch a Startup",category:"DevOps",image:"https://picsum.photos/400/300?3"},
+{title:"Design Systems Explained",category:"AWS",image:"https://picsum.photos/400/300?4"},
+{title:"JavaScript Performance Tips",category:"Linux",image:"https://picsum.photos/400/300?5"},
+{title:"Startup Marketing Guide",category:"DevOps",image:"https://picsum.photos/400/300?6"},
+{title:"CSS Tricks Every Dev Should Know",category:"Linux",image:"https://picsum.photos/400/300?7"},
+{title:"Modern UX Principles",category:"AWS",image:"https://picsum.photos/400/300?8"},
+{title:"Funding Your Startup",category:"DevOps",image:"https://picsum.photos/400/300?9"},
+{title:"Top UI Trends 2026",category:"AWS",image:"https://picsum.photos/400/300?1"},
+{title:"Best AI Tools for Developers",category:"Linux",image:"https://picsum.photos/400/300?2"},
+{title:"How to Launch a Startup",category:"DevOps",image:"https://picsum.photos/400/300?3"},
+{title:"Design Systems Explained",category:"AWS",image:"https://picsum.photos/400/300?4"},
+{title:"JavaScript Performance Tips",category:"Linux",image:"https://picsum.photos/400/300?5"},
+{title:"Startup Marketing Guide",category:"DevOps",image:"https://picsum.photos/400/300?6"},
+{title:"CSS Tricks Every Dev Should Know",category:"Linux",image:"https://picsum.photos/400/300?7"},
+{title:"Modern UX Principles",category:"AWS",image:"https://picsum.photos/400/300?8"},
+{title:"Funding Your Startup",category:"DevOps",image:"https://picsum.photos/400/300?9"},
+{title:"Top UI Trends 2026",category:"AWS",image:"https://picsum.photos/400/300?1"},
+{title:"Best AI Tools for Developers",category:"Linux",image:"https://picsum.photos/400/300?2"},
+{title:"How to Launch a Startup",category:"DevOps",image:"https://picsum.photos/400/300?3"},
+{title:"Design Systems Explained",category:"AWS",image:"https://picsum.photos/400/300?4"},
+{title:"JavaScript Performance Tips",category:"Linux",image:"https://picsum.photos/400/300?5"},
+{title:"Startup Marketing Guide",category:"DevOps",image:"https://picsum.photos/400/300?6"},
+{title:"CSS Tricks Every Dev Should Know",category:"Linux",image:"https://picsum.photos/400/300?7"},
+{title:"Modern UX Principles",category:"AWS",image:"https://picsum.photos/400/300?8"},
+{title:"Funding Your Startup",category:"DevOps",image:"https://picsum.photos/400/300?9"},
+{title:"Top UI Trends 2026",category:"AWS",image:"https://picsum.photos/400/300?1"},
+{title:"Best AI Tools for Developers",category:"Linux",image:"https://picsum.photos/400/300?2"},
+{title:"How to Launch a Startup",category:"DevOps",image:"https://picsum.photos/400/300?3"},
+{title:"Design Systems Explained",category:"AWS",image:"https://picsum.photos/400/300?4"},
+{title:"JavaScript Performance Tips",category:"Linux",image:"https://picsum.photos/400/300?5"},
+{title:"Startup Marketing Guide",category:"DevOps",image:"https://picsum.photos/400/300?6"},
+{title:"CSS Tricks Every Dev Should Know",category:"Linux",image:"https://picsum.photos/400/300?7"},
+{title:"Modern UX Principles",category:"AWS",image:"https://picsum.photos/400/300?8"},
+{title:"Funding Your Startup",category:"DevOps",image:"https://picsum.photos/400/300?9"},
+{title:"Top UI Trends 2026",category:"AWS",image:"https://picsum.photos/400/300?1"},
+{title:"Best AI Tools for Developers",category:"Linux",image:"https://picsum.photos/400/300?2"},
+{title:"How to Launch a Startup",category:"DevOps",image:"https://picsum.photos/400/300?3"},
+{title:"Design Systems Explained",category:"AWS",image:"https://picsum.photos/400/300?4"},
+{title:"JavaScript Performance Tips",category:"Linux",image:"https://picsum.photos/400/300?5"},
+{title:"Startup Marketing Guide",category:"DevOps",image:"https://picsum.photos/400/300?6"},
+{title:"CSS Tricks Every Dev Should Know",category:"Linux",image:"https://picsum.photos/400/300?7"},
+{title:"Modern UX Principles",category:"AWS",image:"https://picsum.photos/400/300?8"},
+{title:"Funding Your Startup",category:"DevOps",image:"https://picsum.photos/400/300?9"},
+{title:"Top UI Trends 2026",category:"AWS",image:"https://picsum.photos/400/300?1"},
+{title:"Best AI Tools for Developers",category:"Linux",image:"https://picsum.photos/400/300?2"},
+{title:"How to Launch a Startup",category:"DevOps",image:"https://picsum.photos/400/300?3"},
+{title:"Design Systems Explained",category:"AWS",image:"https://picsum.photos/400/300?4"},
+{title:"JavaScript Performance Tips",category:"Linux",image:"https://picsum.photos/400/300?5"},
+{title:"Startup Marketing Guide",category:"DevOps",image:"https://picsum.photos/400/300?6"},
+{title:"CSS Tricks Every Dev Should Know",category:"Linux",image:"https://picsum.photos/400/300?7"},
+{title:"Modern UX Principles",category:"AWS",image:"https://picsum.photos/400/300?8"},
+{title:"Funding Your Startup",category:"DevOps",image:"https://picsum.photos/400/300?9"},
+{title:"Top UI Trends 2026",category:"AWS",image:"https://picsum.photos/400/300?1"},
+{title:"Best AI Tools for Developers",category:"Linux",image:"https://picsum.photos/400/300?2"},
+{title:"How to Launch a Startup",category:"DevOps",image:"https://picsum.photos/400/300?3"},
+{title:"Design Systems Explained",category:"AWS",image:"https://picsum.photos/400/300?4"},
+{title:"JavaScript Performance Tips",category:"Linux",image:"https://picsum.photos/400/300?5"},
+{title:"Startup Marketing Guide",category:"DevOps",image:"https://picsum.photos/400/300?6"},
+{title:"CSS Tricks Every Dev Should Know",category:"Linux",image:"https://picsum.photos/400/300?7"},
+{title:"Modern UX Principles",category:"AWS",image:"https://picsum.photos/400/300?8"},
+{title:"Funding Your Startup",category:"DevOps",image:"https://picsum.photos/400/300?9"},
+{title:"Top UI Trends 2026",category:"AWS",image:"https://picsum.photos/400/300?1"},
+{title:"Best AI Tools for Developers",category:"Linux",image:"https://picsum.photos/400/300?2"},
+{title:"How to Launch a Startup",category:"DevOps",image:"https://picsum.photos/400/300?3"},
+{title:"Design Systems Explained",category:"AWS",image:"https://picsum.photos/400/300?4"},
+{title:"JavaScript Performance Tips",category:"Linux",image:"https://picsum.photos/400/300?5"},
+{title:"Startup Marketing Guide",category:"DevOps",image:"https://picsum.photos/400/300?6"},
+{title:"CSS Tricks Every Dev Should Know",category:"Linux",image:"https://picsum.photos/400/300?7"},
+{title:"Modern UX Principles",category:"AWS",image:"https://picsum.photos/400/300?8"},
+{title:"Funding Your Startup",category:"DevOps",image:"https://picsum.photos/400/300?9"},
+{title:"Top UI Trends 2026",category:"AWS",image:"https://picsum.photos/400/300?1"},
+{title:"Best AI Tools for Developers",category:"Linux",image:"https://picsum.photos/400/300?2"},
+{title:"How to Launch a Startup",category:"DevOps",image:"https://picsum.photos/400/300?3"},
+{title:"Design Systems Explained",category:"AWS",image:"https://picsum.photos/400/300?4"},
+{title:"JavaScript Performance Tips",category:"Linux",image:"https://picsum.photos/400/300?5"},
+{title:"Startup Marketing Guide",category:"DevOps",image:"https://picsum.photos/400/300?6"},
+{title:"CSS Tricks Every Dev Should Know",category:"Linux",image:"https://picsum.photos/400/300?7"},
+{title:"Modern UX Principles",category:"AWS",image:"https://picsum.photos/400/300?8"},
+{title:"Funding Your Startup",category:"DevOps",image:"https://picsum.photos/400/300?9"},
+{title:"Top UI Trends 2026",category:"AWS",image:"https://picsum.photos/400/300?1"},
+{title:"Best AI Tools for Developers",category:"Linux",image:"https://picsum.photos/400/300?2"},
+{title:"How to Launch a Startup",category:"DevOps",image:"https://picsum.photos/400/300?3"},
+{title:"Design Systems Explained",category:"AWS",image:"https://picsum.photos/400/300?4"},
+{title:"JavaScript Performance Tips",category:"Linux",image:"https://picsum.photos/400/300?5"},
+{title:"Startup Marketing Guide",category:"DevOps",image:"https://picsum.photos/400/300?6"},
+{title:"CSS Tricks Every Dev Should Know",category:"Linux",image:"https://picsum.photos/400/300?7"},
+{title:"Modern UX Principles",category:"AWS",image:"https://picsum.photos/400/300?8"},
+{title:"Funding Your Startup",category:"DevOps",image:"https://picsum.photos/400/300?9"},
+{title:"Top UI Trends 2026",category:"AWS",image:"https://picsum.photos/400/300?1"},
+{title:"Best AI Tools for Developers",category:"Linux",image:"https://picsum.photos/400/300?2"},
+{title:"How to Launch a Startup",category:"DevOps",image:"https://picsum.photos/400/300?3"},
+{title:"Design Systems Explained",category:"AWS",image:"https://picsum.photos/400/300?4"},
+{title:"JavaScript Performance Tips",category:"Linux",image:"https://picsum.photos/400/300?5"},
+{title:"Startup Marketing Guide",category:"DevOps",image:"https://picsum.photos/400/300?6"},
+{title:"CSS Tricks Every Dev Should Know",category:"Linux",image:"https://picsum.photos/400/300?7"},
+{title:"Modern UX Principles",category:"AWS",image:"https://picsum.photos/400/300?8"},
+{title:"Funding Your Startup",category:"DevOps",image:"https://picsum.photos/400/300?9"}
+]
+
+let currentPage = 1
+const blogsPerPage = 6
+let filteredBlogs = blogs
+
+function displayBlogs(){
+
+const grid = document.getElementById("blogGrid")
+grid.innerHTML=""
+
+const start = (currentPage-1)*blogsPerPage
+const end = start + blogsPerPage
+
+const paginatedBlogs = filteredBlogs.slice(start,end)
+
+paginatedBlogs.forEach(blog=>{
+
+grid.innerHTML+=`
+
+<div class="blog-card" data-category="${blog.category}">
+<img src="${blog.image}">
+<div class="blog-content">
+<span class="tag">${blog.category}</span>
+<h3>${blog.title}</h3>
+<div class="meta">5 min read • Mar 2026</div>
+</div>
+</div>
+
+`
+
+})
+
+displayPagination()
+
+}
+
+function displayPagination(){
+
+const totalPages = Math.ceil(filteredBlogs.length/blogsPerPage)
+const pagination = document.getElementById("pagination")
+
+pagination.innerHTML=""
+
+for(let i=1;i<=totalPages;i++){
+
+pagination.innerHTML+=`<button onclick="changePage(${i})" class="${i===currentPage?'active':''}">${i}</button>`
+
+}
+
+}
+
+function changePage(page){
+currentPage=page
+displayBlogs()
+}
+
+function filterBlogs(category){
+
+document.querySelectorAll(".filters button").forEach(btn=>btn.classList.remove("active"))
+event.target.classList.add("active")
+
+if(category==="all"){
+filteredBlogs=blogs
+}else{
+filteredBlogs=blogs.filter(blog=>blog.category===category)
+}
+
+currentPage=1
+displayBlogs()
+
+}
+
+document.getElementById("searchInput").addEventListener("input",function(){
+
+const value=this.value.toLowerCase()
+
+filteredBlogs=blogs.filter(blog=>blog.title.toLowerCase().includes(value))
+
+currentPage=1
+displayBlogs()
+
+})
+
+displayBlogs()
+
+</script>
+
+<script>
+/* ----------------------------
+   Load Header & Footer Includes
+----------------------------- */
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("[data-include]").forEach(el => {
+    fetch(el.dataset.include)
+      .then(res => res.text())
+      .then(html => el.innerHTML = html)
+      .catch(err => console.error("Include error:", err));
+  });
+});
+</script>
 
 </body>
 </html>

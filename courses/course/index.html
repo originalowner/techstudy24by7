@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DevOps Complete Guide - TechStudy24By7</title>
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+<style>
+
+*{
+margin:0;
+box-sizing:border-box;
+font-family:"Segoe UI",sans-serif;
+}
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+background:#f7f7f7;
+color:#333;
+}
+
+/* HERO */
+
+.course-hero{
+padding:40px 10%;
+background:white;
+border-bottom:1px solid #eee;
+}
+
+.course-hero h1{
+margin-bottom:10px;
+}
+
+.course-meta{
+font-size:14px;
+color:#777;
+}
+
+/* MAIN LAYOUT */
+
+.course-container{
+padding:40px 10%;
+display:grid;
+grid-template-columns:2fr 1fr;
+gap:40px;
+}
+
+/* CONTENT */
+
+.course-section{
+background:white;
+padding:25px;
+border-radius:10px;
+margin-bottom:25px;
+box-shadow:0 5px 20px rgba(0,0,0,0.05);
+}
+
+.course-section h2{
+margin-bottom:15px;
+}
+
+.course-section p{
+line-height:1.7;
+}
+
+/* LEARNING LIST */
+
+.learn-list{
+margin-top:10px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+}
+
+.learn-list li{
+background:#f3f3f3;
+padding:10px;
+border-radius:6px;
+list-style:none;
+}
+
+/* CURRICULUM */
+
+.curriculum-item{
+padding:12px 0;
+border-bottom:1px solid #eee;
+font-size:14px;
+}
+
+/* SIDEBAR */
+
+.course-sidebar{
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 5px 20px rgba(0,0,0,0.05);
+position:sticky;
+top:30px;
+height:fit-content;
+}
+
+.course-sidebar img{
+width:100%;
+border-radius:10px;
+margin-bottom:15px;
+}
+
+.enroll-btn{
+display:block;
+text-align:center;
+background:black;
+color:white;
+padding:12px;
+border-radius:6px;
+text-decoration:none;
+margin-top:15px;
+}
+
+/* INFO */
+
+.course-info{
+font-size:14px;
+margin-top:10px;
+color:#555;
+}
+
+.course-info div{
+margin-bottom:8px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.course-container{
+grid-template-columns:1fr;
+}
+
+.course-sidebar{
+position:relative;
+}
+
+.learn-list{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Header -->
+<div data-include="/header.html"></div>
+
+
+<!-- HERO -->
+
+<section class="course-hero">
+
+<h1>DevOps Complete Guide</h1>
+
+<div class="course-meta">
+Created by TechStudy24By7 • 20 Lessons • Intermediate Level
+</div>
+
+</section>
+
+
+<!-- COURSE LAYOUT -->
+
+<section class="course-container">
+
+
+<!-- LEFT CONTENT -->
+
+<div>
+
+
+<!-- DESCRIPTION -->
+
+<div class="course-section">
+
+<h2>Course Description</h2>
+
+<p>
+
+This course provides a complete introduction to modern DevOps practices used by professional engineering teams. You will learn how to automate software delivery, manage infrastructure, and build reliable CI/CD pipelines.
+
+</p>
+
+<br>
+
+<p>
+
+The course covers Linux fundamentals, Docker containers, Kubernetes orchestration, CI/CD automation, and cloud deployment using AWS.
+
+By the end of this course, you will understand how DevOps teams build scalable production systems.
+
+</p>
+
+</div>
+
+
+<!-- WHAT YOU WILL LEARN -->
+
+<div class="course-section">
+
+<h2>What You Will Learn</h2>
+
+<ul class="learn-list">
+
+<li>Linux for DevOps</li>
+<li>Git & Version Control</li>
+<li>Docker Containers</li>
+<li>Kubernetes Basics</li>
+<li>CI/CD Pipelines</li>
+<li>AWS Deployment</li>
+<li>Infrastructure Automation</li>
+<li>Monitoring & Logging</li>
+
+</ul>
+
+</div>
+
+
+<!-- CURRICULUM -->
+
+<div class="course-section">
+
+<h2>Course Curriculum</h2>
+
+<div class="curriculum-item">1. Introduction to DevOps</div>
+<div class="curriculum-item">2. Linux Basics for DevOps</div>
+<div class="curriculum-item">3. Git & Version Control</div>
+<div class="curriculum-item">4. Docker Fundamentals</div>
+<div class="curriculum-item">5. Docker Compose</div>
+<div class="curriculum-item">6. Kubernetes Introduction</div>
+<div class="curriculum-item">7. CI/CD Pipelines</div>
+<div class="curriculum-item">8. AWS Deployment</div>
+<div class="curriculum-item">9. Infrastructure as Code</div>
+<div class="curriculum-item">10. Monitoring & Logging</div>
+
+</div>
+
+</div>
+
+
+
+<!-- SIDEBAR -->
+
+<div class="course-sidebar">
+
+<img src="https://picsum.photos/400/250?devops">
+
+<h3>DevOps Complete Guide</h3>
+
+<div class="course-info">
+
+<div>📚 20 Lessons</div>
+<div>⏱ 6 Hours Content</div>
+<div>🎯 Intermediate Level</div>
+<div>📜 Certificate Included</div>
+
+</div>
+
+<a href="#" class="enroll-btn">
+Enroll Now
+</a>
+
+</div>
+
+
+</section>
+
+
+<!-- Footer -->
+<div data-include="/footer.html"></div>
+
+
+<script>
+
+/* Header Footer Include */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+document.querySelectorAll("[data-include]").forEach(el => {
+
+fetch(el.dataset.include)
+.then(res => res.text())
+.then(html => el.innerHTML = html)
+.catch(err => console.error("Include error:", err))
+
+})
+
+})
+
+</script>
+
+</body>
+</html>
