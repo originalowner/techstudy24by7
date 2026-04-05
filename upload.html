@@ -132,8 +132,6 @@ async function generateContent(){
         if(response.ok){
             resultDiv.innerHTML =
                 "✅ Uploaded Successfully\n\n" +
-                "🔗 GitHub File:\n" +
-                `<a class="link" href="${data.github_url}" target="_blank">${data.github_url}</a>\n\n` +
                 "📁 File Path:\n" +
                 data.file_path;
         }
