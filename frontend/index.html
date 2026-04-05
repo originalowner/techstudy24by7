@@ -465,5 +465,37 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
+<script>
+async function loadBlogPost() {
+  try {
+    const response = await fetch("/data.json"); // same repo
+    const data = await response.json();
+
+    if (!data || data.length === 0) return;
+
+    // Get latest post
+    const post = data[data.length - 1];
+
+    // Update Title
+    document.querySelector(".hero h1").innerText = post.Title || "Untitled";
+
+    // Update Meta
+    document.querySelector(".meta").innerText =
+      `Generated • ${post.Date} • ${post.Time}`;
+
+    // Update Content
+    document.querySelector(".article").innerHTML = `
+      <p>${post.content.replace(/
+/g, "<br>")}</p>
+    `;
+
+  } catch (error) {
+    console.error("Error loading blog:", error);
+  }
+}
+
+loadBlogPost();
+</script>
+
 </body>
 </html>
