@@ -132,8 +132,10 @@ async function generateContent(){
         if(response.ok){
             resultDiv.innerHTML =
                 "✅ Uploaded Successfully\n\n" +
-                "📁 File Path:\n" +
-                data.file_path;
+                "📁 Data File Path:\n" +
+                data.data_file_path; +
+                "📁 HTML File Path:\n" +
+                data.html_file_path;
         }
         else{
             resultDiv.innerHTML = "❌ Error:\n" + JSON.stringify(data, null, 2);
