@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -12,6 +13,7 @@ body{
     justify-content:center;
     align-items:center;
     height:100vh;
+    margin:0;
 }
 
 .container{
@@ -34,6 +36,7 @@ textarea{
     border-radius:6px;
     border:1px solid #ccc;
     font-size:14px;
+    resize:none;
 }
 
 button{
@@ -44,10 +47,16 @@ button{
     border-radius:6px;
     cursor:pointer;
     font-size:16px;
+    width:100%;
 }
 
 button:hover{
     background:#43a047;
+}
+
+button:disabled{
+    background:#9e9e9e;
+    cursor:not-allowed;
 }
 
 .result{
@@ -56,6 +65,18 @@ button:hover{
     background:#f9f9f9;
     border-radius:6px;
     white-space:pre-wrap;
+    font-size:14px;
+    line-height:1.5;
+}
+
+.link{
+    color:#1a73e8;
+    text-decoration:none;
+    word-break:break-all;
+}
+
+.link:hover{
+    text-decoration:underline;
 }
 </style>
 
@@ -69,7 +90,7 @@ button:hover{
 
 <textarea id="prompt" placeholder="Enter your prompt here..."></textarea>
 
-<button onclick="generateContent()">Generate</button>
+<button id="generateBtn" onclick="generateContent()">Generate</button>
 
 <div class="result" id="result">Output will appear here...</div>
 
@@ -79,10 +100,17 @@ button:hover{
 
 async function generateContent(){
 
-    const prompt = document.getElementById("prompt").value;
+    const prompt = document.getElementById("prompt").value.trim();
     const resultDiv = document.getElementById("result");
+    const button = document.getElementById("generateBtn");
 
-    resultDiv.innerHTML = "Generating...";
+    if(!prompt){
+        resultDiv.innerHTML = "⚠️ Please enter a prompt.";
+        return;
+    }
+
+    resultDiv.innerHTML = "⏳ Generating...";
+    button.disabled = true;
 
     try{
 
@@ -101,15 +129,24 @@ async function generateContent(){
 
         const data = await response.json();
 
-        resultDiv.innerHTML =
-            //"📄 Generated Content:\n\n" +
-            //data.output +
-            "\n\n📁 Stored in S3 Key:\n" +
-            data.s3_key;
+        if(response.ok){
+            resultDiv.innerHTML =
+                "✅ Uploaded Successfully\n\n" +
+                "🔗 GitHub File:\n" +
+                `<a class="link" href="${data.github_url}" target="_blank">${data.github_url}</a>\n\n` +
+                "📁 File Path:\n" +
+                data.file_path;
+        }
+        else{
+            resultDiv.innerHTML = "❌ Error:\n" + JSON.stringify(data, null, 2);
+        }
 
     }
     catch(error){
-        resultDiv.innerHTML = "Error calling API: " + error;
+        resultDiv.innerHTML = "❌ Network Error:\n" + error;
+    }
+    finally{
+        button.disabled = false;
     }
 
 }
