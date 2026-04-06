@@ -385,8 +385,31 @@ async function loadPost(){
       post.image || "https://picsum.photos/1200/600"
 
     // Content
-    document.getElementById("postContent").innerHTML =
-      `<p>${post.content || "No content available"}</p>`
+    document.getElementById("postContent").innerHTML = `
+
+<p>${post.content || "No content available"}</p>
+
+<!-- TAGS -->
+<div class="tags">
+  ${(post.tags || ["General"]).map(tag => `<span class="tag">${tag}</span>`).join("")}
+</div>
+
+<!-- SHARE -->
+<div class="share">
+  <button onclick="sharePost()">Share</button>
+  <button onclick="copyLink()">Copy Link</button>
+</div>
+
+<!-- AUTHOR -->
+<div class="author-box">
+  <img src="${post.authorImage || 'https://i.pravatar.cc/100'}">
+  <div>
+    <strong>${post.author || 'Admin'}</strong>
+    <p>${post.authorBio || 'Tech writer and blogger.'}</p>
+  </div>
+</div>
+
+`
 
   }catch(err){
     console.error("Error loading post:", err)
