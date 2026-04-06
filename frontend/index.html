@@ -364,7 +364,7 @@ async function loadPost(){
 
     // Get ID from URL
     const params = new URLSearchParams(window.location.search)
-    const id = params.get("id") || 0
+    const id = params.get("id") || 6
 
     const post = data[id]
 
@@ -387,7 +387,7 @@ async function loadPost(){
     // Content
     document.getElementById("postContent").innerHTML = `
 
-<p>${post.content || "No content available"}</p>
+${post.content || "No content available"}
 
 <!-- TAGS -->
 <div class="tags">
