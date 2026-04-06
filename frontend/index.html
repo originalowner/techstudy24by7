@@ -253,13 +253,11 @@ font-size:30px;
 
 <section class="hero">
 
-<h1>How AI is Transforming Modern Web Development</h1>
+<h1 id="postTitle"></h1>
 
-<div class="meta">
-By John Doe • 5 min read • March 2026
-</div>
+<div class="meta" id="postMeta"></div>
 
-<img class="featured" src="https://picsum.photos/1200/600">
+<img class="featured" id="postImage">
 
 </section>
 
@@ -267,64 +265,7 @@ By John Doe • 5 min read • March 2026
 
 <div class="container">
 
-<article class="article">
-
-<p>
-Artificial intelligence is transforming the way developers design, build,
-and deploy applications. From AI assisted coding to automated testing,
-development workflows are becoming faster and smarter.
-</p>
-
-<h2 id="why-ai">Why AI Matters</h2>
-
-<p>
-AI tools help automate repetitive tasks and assist developers with
-intelligent code suggestions.
-</p>
-
-<img src="https://picsum.photos/900/400">
-
-<h2 id="tools">Popular AI Tools</h2>
-
-<p>
-Many teams now rely on AI powered tools for development,
-documentation and debugging.
-</p>
-
-<h2 id="future">Future of Development</h2>
-
-<p>
-AI will augment developers rather than replace them. Engineers who learn
-to work with AI systems will gain a massive productivity advantage.
-</p>
-
-<div class="tags">
-<span class="tag">AI</span>
-<span class="tag">Technology</span>
-<span class="tag">Development</span>
-</div>
-
-<!-- Share -->
-
-<div class="share">
-<button onclick="sharePost()">Share</button>
-<button onclick="copyLink()">Copy Link</button>
-</div>
-
-<!-- Author -->
-
-<div class="author-box">
-
-<img src="https://i.pravatar.cc/100">
-
-<div>
-<strong>John Doe</strong>
-<p>Tech writer focused on AI, startups and software development.</p>
-</div>
-
-</div>
-
-</article>
+<article class="article" id="postContent"></article>
 
 <!-- SIDEBAR -->
 
@@ -415,6 +356,50 @@ to work with AI systems will gain a massive productivity advantage.
 
 <script>
 
+async function loadPost(){
+
+  try{
+    const res = await fetch('/data.json')
+    const data = await res.json()
+
+    // Get ID from URL
+    const params = new URLSearchParams(window.location.search)
+    const id = params.get("id") || 0
+
+    const post = data[id]
+
+    if(!post){
+      document.getElementById("postTitle").innerText = "Post not found"
+      return
+    }
+
+    // Set Title
+    document.getElementById("postTitle").innerText = post.title || post.Title
+
+    // Meta
+    document.getElementById("postMeta").innerText =
+      `By Admin • ${post.Date || ''} • ${post.Time || ''}`
+
+    // Image
+    document.getElementById("postImage").src =
+      post.image || "https://picsum.photos/1200/600"
+
+    // Content
+    document.getElementById("postContent").innerHTML =
+      `<p>${post.content || "No content available"}</p>`
+
+  }catch(err){
+    console.error("Error loading post:", err)
+  }
+
+}
+
+loadPost()
+
+</script>
+
+<script>
+
 /* Reading progress */
 
 window.addEventListener("scroll",()=>{
@@ -463,38 +448,6 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch(err => console.error("Include error:", err));
   });
 });
-</script>
-
-<script>
-async function loadBlogPost() {
-  try {
-    const response = await fetch("/data.json"); // same repo
-    const data = await response.json();
-
-    if (!data || data.length === 0) return;
-
-    // Get latest post
-    const post = data[data.length - 1];
-
-    // Update Title
-    document.querySelector(".hero h1").innerText = post.Title || "Untitled";
-
-    // Update Meta
-    document.querySelector(".meta").innerText =
-      `Generated • ${post.Date} • ${post.Time}`;
-
-    // Update Content
-    document.querySelector(".article").innerHTML = `
-      <p>${post.content.replace(/
-/g, "<br>")}</p>
-    `;
-
-  } catch (error) {
-    console.error("Error loading blog:", error);
-  }
-}
-
-loadBlogPost();
 </script>
 
 </body>
