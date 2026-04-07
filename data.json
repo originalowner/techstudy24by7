@@ -130,5 +130,21 @@
     "author": "John Doe",
     "authorBio": "Tech writer focused on AI, startups and software development.",
     "authorImage": "https://i.pravatar.cc/100"
+  },
+  {
+    "title": "How AI is Transforming Modern Web Development",
+    "content": "<h2>Why AI Matters</h2><p>AI is powerful...</p>",
+    "image": "https://picsum.photos/1200/600",
+    "Date": "2026-04-06",
+    "Time": "12:30:00",
+    "tags": [
+      "AI",
+      "Technology",
+      "Development"
+    ],
+    "author": "John Doe",
+    "authorBio": "Tech writer focused on AI, startups and software development.",
+    "authorImage": "https://i.pravatar.cc/100",
+    "slug": "devops-for-techies-in-daily-tech-operations"
   }
 ]
