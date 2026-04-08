@@ -275,8 +275,7 @@ font-size:30px;
 
 <h3>Popular Posts</h3>
 
-<!-- <ul class="popular-posts"> -->
-<ul class="popular-posts" id="popularPosts"></ul>
+<ul class="popular-posts">
 
 <li><a href="/blog/posts/top-ui-trends-2026">Top UI Trends 2026</a></li>
 <li><a href="/blog/posts/best-ai-tools-for-developers">Best AI Tools</a></li>
@@ -310,8 +309,7 @@ font-size:30px;
 
 <h2>Related Posts</h2>
 
-<!-- <div class="related-grid"> -->
-<div class="related-grid" id="relatedPosts"></div>
+<div class="related-grid">
 
 <a href="/blog/posts/top-ui-trends-2026" class="related-card">
 <img src="https://picsum.photos/400/300?1">
@@ -408,45 +406,6 @@ ${post.content || "No content available"}
 </div>
 
 `
-
-<!-- MYADDITION -->
-// Popular Posts (top 5 or latest)
-const popularContainer = document.getElementById("popularPosts")
-
-const popularPosts = data
-  .filter(p => p.slug !== post.slug) // exclude current
-  .slice(0, 5)
-
-popularContainer.innerHTML = popularPosts.map(p => `
-  <li>
-    <a href="/blog/${p.slug}/">
-      ${p.title || p.Title}
-    </a>
-  </li>
-`).join("")
-<!-- MIDDLE -->
-const relatedContainer = document.getElementById("relatedPosts")
-
-const relatedPosts = data
-  .filter(p =>
-    p.slug !== post.slug &&
-    (
-      p.category === post.category ||
-      (p.tags && post.tags && p.tags.some(tag => post.tags.includes(tag)))
-    )
-  )
-  .slice(0, 3)
-
-relatedContainer.innerHTML = relatedPosts.map(p => `
-  <a href="/blog/${p.slug}/" class="related-card">
-    <img src="${p.image || 'https://picsum.photos/400/300'}">
-    <div class="related-content">
-      <h4>${p.title || p.Title}</h4>
-      <p>${(p.description || '').substring(0, 80)}...</p>
-    </div>
-  </a>
-`).join("")
-<!-- --- --->
 
   }catch(err){
     console.error("Error loading post:", err)
