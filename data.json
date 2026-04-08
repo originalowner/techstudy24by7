@@ -78,5 +78,21 @@
     "authorBio": "Tech writer focused on AI, startups and software development.",
     "authorImage": "https://i.pravatar.cc/100",
     "slug": "devops-for-techies-in-daily-tech-operations"
+  },
+  {
+    "content": "Hello",
+    "Date": "2026-04-08",
+    "Time": "15:34:04",
+    "title": "DevOps for Techies in Daily Tech Operations",
+    "image": "https://picsum.photos/1200/600",
+    "tags": [
+      "AI",
+      "Technology",
+      "Development"
+    ],
+    "author": "John Doe",
+    "authorBio": "Tech writer focused on AI, startups and software development.",
+    "authorImage": "https://i.pravatar.cc/100",
+    "slug": "devops-for-techies-in-daily-tech-operations"
   }
 ]
