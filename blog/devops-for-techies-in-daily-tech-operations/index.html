@@ -379,10 +379,10 @@ async function loadPost(){
     }
 
     // Set Title
-    document.getElementById("postTitle").innerText = (post.title || post.Title) + " | TechStudy24by7"
+    document.getElementById("postTitle").innerText = post.title || post.Title
 
     // Set Post Title
-    document.getElementById("title").innerText = post.title || post.Title
+    document.getElementById("title").innerText = (post.title || post.Title) + " | TechStudy24by7"
 
     // Meta
     document.getElementById("postMeta").innerText =
