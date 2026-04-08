@@ -129,16 +129,19 @@ async function generateContent(){
 
         const data = await response.json();
 
-        if(response.ok){
-            resultDiv.innerHTML =
-                "✅ Uploaded Successfully\n\n" +
-                "📁 Data File Path:\n" +
-                data.data_file_path; +
-                "📁 HTML File Path:\n" +
-                data.html_file_path;
-        }
-        else{
-            resultDiv.innerHTML = "❌ Error:\n" + JSON.stringify(data, null, 2);
+        if (response.ok) {
+                const slug = data.slug; // adjust if nested (e.g., data.data.slug)
+
+                const url = `https://www.techstudy24by7.com/blog/${slug}`;
+
+                resultDiv.innerHTML =
+                        "✅ Uploaded Successfully\n\n" +
+                        "📁 Data File Path:\n" +
+                        data.data_file_path + "\n\n" +
+                        "🔗 Blog URL:\n" +
+                        `<a href="${url}" target="_blank">${url}</a>`;
+        } else {
+                resultDiv.innerHTML = "❌ Error:\n" + JSON.stringify(data, null, 2);
         }
 
     }
