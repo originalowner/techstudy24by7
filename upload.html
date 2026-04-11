@@ -140,7 +140,9 @@ async function generateContent(){
                 reader.readAsDataURL(imageFile);
                 console.log("🔄 Converting image to base64...7");
             });
+	    console.log("🔄 Converting image to base64...8");
         }
+	console.log("🔄 Converting image to base64...9");
 
         const response = await fetch(
             "https://21mti522j3.execute-api.ap-south-1.amazonaws.com/generate",
@@ -156,8 +158,10 @@ async function generateContent(){
                 })
             }
         );
+	console.log("🔄 Converting image to base64...10");
 
         const data = await response.json();
+	console.log("🔄 Converting image to base64...11");
 
         if (response.ok) {
             const slug = data.slug;
