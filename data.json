@@ -49,5 +49,22 @@
     "authorBio": "Tech writer focused on AI, startups and software development.",
     "authorImage": "https://i.pravatar.cc/100",
     "slug": "linux-is-best-for-all"
+  },
+  {
+    "content": "Hello",
+    "excert": "Hello",
+    "category": "AWS",
+    "Date": "2026-04-11",
+    "title": "AWS is best for all",
+    "image": "https://picsum.photos/1200/600",
+    "tags": [
+      "AI",
+      "Technology",
+      "Development"
+    ],
+    "author": "Admin",
+    "authorBio": "Tech writer focused on AI, startups and software development.",
+    "authorImage": "https://i.pravatar.cc/100",
+    "slug": "aws-is-best-for-all"
   }
 ]
