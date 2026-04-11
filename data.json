@@ -1,0 +1,17 @@
+[
+  {
+    "content": "Hello",
+    "Date": "2026-04-11",
+    "title": "Beginners Guide to Linux Command Line",
+    "image": "https://picsum.photos/1200/600",
+    "tags": [
+      "AI",
+      "Technology",
+      "Development"
+    ],
+    "author": "Admin",
+    "authorBio": "Tech writer focused on AI, startups and software development.",
+    "authorImage": "https://i.pravatar.cc/100",
+    "slug": "beginners-guide-to-linux-command-line"
+  }
+]
