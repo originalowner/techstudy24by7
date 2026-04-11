@@ -434,11 +434,11 @@ async function loadRelatedPosts() {
 
     selectedPosts.forEach(post => {
       const card = `
-        <a href="${post.link}" class="related-card">
+        <a href="/blog/${post.slug}/" class="related-card">
           <img src="${post.image}" alt="${post.title}">
           <div class="related-content">
             <h4>${post.title}</h4>
-            <p>${post.description}</p>
+            <p>${post.content}</p>
           </div>
         </a>
       `;
