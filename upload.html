@@ -89,7 +89,7 @@ button:disabled{
 <h2>Gemini Content Generator</h2>
 
 <textarea id="prompt" placeholder="Enter your prompt here..."></textarea>
-<textarea id="category" placeholder="Enter your category here..."></textarea>
+<!-- <textarea id="category" placeholder="Enter your category here..."></textarea> -->
 
 <button id="generateBtn" onclick="generateContent()">Generate</button>
 
@@ -102,7 +102,7 @@ button:disabled{
 async function generateContent(){
 
     const prompt = document.getElementById("prompt").value.trim();
-    const category = document.getElementById("category").value.trim();
+    //const category = document.getElementById("category").value.trim();
     const resultDiv = document.getElementById("result");
     const button = document.getElementById("generateBtn");
 
@@ -111,10 +111,10 @@ async function generateContent(){
         return;
     }
 
-    if(!category){
-        resultDiv.innerHTML = "⚠️ Please enter a category.";
-        return;
-    }
+    //if(!category){
+    //    resultDiv.innerHTML = "⚠️ Please enter a category.";
+    //    return;
+    //}
 
     resultDiv.innerHTML = "⏳ Generating...";
     button.disabled = true;
@@ -129,8 +129,8 @@ async function generateContent(){
                     "Content-Type":"application/json"
                 },
                 body: JSON.stringify({
-                    prompt: prompt,
-		    category: category
+                    prompt: prompt
+		    //category: category
                 })
             }
         );
