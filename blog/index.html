@@ -269,15 +269,19 @@ paginatedBlogs.forEach(blog=>{
 //
 //`
 grid.innerHTML += `
-<div class="blog-card" data-category="${blog.category}">
-  <img src="${blog.image}">
-  <div class="blog-content">
-    <span class="tag">${blog.category}</span>
-    <h3>${blog.title}</h3>
-    <p>${blog.description || ""}</p>
-    <div class="meta">${blog.readTime || "5 min read"} • ${blog.Date || ""}</div>
+<a href="https://www.techstudy24by7.com/blog/${blog.slug}/" class="blog-link">
+  <div class="blog-card" data-category="${blog.category}">
+    <img src="${blog.image}">
+    <div class="blog-content">
+      <span class="tag">${blog.category}</span>
+      <h3>${blog.title}</h3>
+      <p>${blog.description || ""}</p>
+      <div class="meta">
+        ${blog.readTime || "5 min read"} • ${blog.Date || ""}
+      </div>
+    </div>
   </div>
-</div>
+</a>
 `
 
 })
