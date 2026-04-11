@@ -58,5 +58,20 @@
     "authorBio": "Tech writer focused on AI, startups and software development.",
     "authorImage": "https://i.pravatar.cc/100",
     "slug": "automating-tasks-in-linux-using-bash-scripts"
+  },
+  {
+    "content": "Hello",
+    "Date": "2026-04-11",
+    "title": "Linux for Developers Setting Up the Perfect Dev Environment",
+    "image": "https://picsum.photos/1200/600",
+    "tags": [
+      "AI",
+      "Technology",
+      "Development"
+    ],
+    "author": "Admin",
+    "authorBio": "Tech writer focused on AI, startups and software development.",
+    "authorImage": "https://i.pravatar.cc/100",
+    "slug": "linux-for-developers-setting-up-the-perfect-dev-environment"
   }
 ]
