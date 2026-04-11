@@ -1,0 +1,545 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id=title>Blog Post</title>
+
+<style>
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+margin:0;
+background:#f6f6f6;
+color:#333;
+line-height:1.7;
+}
+
+/* Reading Progress Bar */
+
+.progress-bar{
+position:fixed;
+top:0;
+left:0;
+height:4px;
+background:black;
+width:0%;
+z-index:999;
+}
+
+/* Hero */
+
+.hero{
+padding:50px 8%;
+max-width:900px;
+margin:auto;
+}
+
+.hero h1{
+font-size:42px;
+margin-bottom:10px;
+}
+
+.meta{
+color:#777;
+font-size:14px;
+}
+
+/* Image */
+
+.featured{
+margin-top:25px;
+width:100%;
+border-radius:12px;
+}
+
+/* Layout */
+
+.container{
+display:grid;
+grid-template-columns:3fr 1fr;
+gap:40px;
+padding:40px 8%;
+}
+
+/* Article */
+
+.article{
+background:white;
+padding:40px;
+border-radius:12px;
+box-shadow:0 10px 25px rgba(0,0,0,0.05);
+}
+
+.article h2{
+margin-top:30px;
+}
+
+.article img{
+width:100%;
+margin:25px 0;
+border-radius:10px;
+}
+
+/* Tags */
+
+.tags{
+margin-top:30px;
+}
+
+.tag{
+background:#eee;
+padding:6px 12px;
+border-radius:20px;
+font-size:12px;
+margin-right:10px;
+}
+
+/* Author */
+
+.author-box{
+display:flex;
+gap:20px;
+background:#fafafa;
+padding:20px;
+border-radius:10px;
+margin-top:40px;
+align-items:center;
+}
+
+.author-box img{
+width:60px;
+height:60px;
+border-radius:50%;
+}
+
+/* Sidebar */
+
+.sidebar{
+display:flex;
+flex-direction:column;
+gap:25px;
+}
+
+.sidebar-box{
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 8px 20px rgba(0,0,0,0.05);
+}
+
+/* TOC */
+
+.toc a{
+display:block;
+padding:6px 0;
+text-decoration:none;
+color:#444;
+font-size:14px;
+}
+
+.toc a:hover{
+color:black;
+}
+
+/* Popular posts */
+
+.popular-posts li{
+margin-bottom:10px;
+}
+
+.popular-posts a{
+text-decoration:none;
+color:#333;
+}
+
+.popular-posts a:hover{
+font-weight:600;
+}
+
+/* Categories */
+
+.categories a{
+display:block;
+padding:6px 0;
+text-decoration:none;
+color:#444;
+}
+
+/* Share */
+
+.share{
+margin-top:30px;
+}
+
+.share button{
+margin-right:10px;
+padding:8px 14px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+background:#eee;
+}
+
+/* Related */
+
+.related{
+padding:60px 8%;
+}
+
+.related-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.related-card{
+display:block;
+text-decoration:none;
+color:inherit;
+background:white;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 8px 20px rgba(0,0,0,0.05);
+transition:0.3s;
+}
+
+.related-card:hover{
+transform:translateY(-5px);
+}
+
+.related-card img{
+width:100%;
+height:160px;
+object-fit:cover;
+}
+
+.related-content{
+padding:15px;
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+.container{
+grid-template-columns:1fr;
+}
+
+.hero h1{
+font-size:30px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Header -->
+  <div data-include="/header.html"></div>
+
+<div class="progress-bar" id="progress"></div>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<h1 id="postTitle"></h1>
+
+<div class="meta" id="postMeta"></div>
+
+<img class="featured" id="postImage">
+
+</section>
+
+<!-- CONTENT -->
+
+<div class="container">
+
+<article class="article" id="postContent"></article>
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+<div class="sidebar-box">
+
+<h3>Popular Posts</h3>
+
+<ul class="popular-posts" id="popular-posts">
+
+<li><a href="/blog/posts/top-ui-trends-2026">Top UI Trends 2026</a></li>
+<li><a href="/blog/posts/best-ai-tools-for-developers">Best AI Tools</a></li>
+<li><a href="/blog/posts/startup-growth-strategies">Startup Growth</a></li>
+<li><a href="/blog/posts/design-systems-guide">Design Systems</a></li>
+
+</ul>
+
+</div>
+
+<div class="sidebar-box">
+
+<h3>Categories</h3>
+
+<div class="categories">
+<a href="/blog/categories/linux">Linux</a>
+<a href="/blog/categories/aws">AWS</a>
+<a href="/blog/categories/devops">Devops</a>
+<a href="/blog/categories/all">All</a>
+</div>
+
+</div>
+
+</aside>
+
+</div>
+
+<!-- RELATED POSTS -->
+
+<section class="related">
+
+<h2>Related Posts</h2>
+
+<div class="related-grid" id="related-posts">
+
+<a href="/blog/posts/top-ui-trends-2026" class="related-card">
+<img src="https://picsum.photos/400/300?1">
+<div class="related-content">
+<h4>Top UI Trends 2026</h4>
+<p>Modern design patterns shaping websites.</p>
+</div>
+</a>
+
+<a href="/blog/posts/best-ai-tools-for-developers" class="related-card">
+<img src="https://picsum.photos/400/300?2">
+<div class="related-content">
+<h4>Best AI Tools</h4>
+<p>Tools that boost developer productivity.</p>
+</div>
+</a>
+
+<a href="/blog/posts/how-to-launch-startup" class="related-card">
+<img src="https://picsum.photos/400/300?3">
+<div class="related-content">
+<h4>How to Launch a Startup</h4>
+<p>Building your first startup product.</p>
+</div>
+</a>
+
+</div>
+
+</section>
+
+<!-- Footer -->
+  <div data-include="/footer.html"></div>
+
+<script>
+
+async function loadPost(){
+
+  try{
+    const res = await fetch('/data.json')
+    const data = await res.json()
+
+    // Get ID from URL
+    const params = new URLSearchParams(window.location.search)
+    const id = params.get("id") || 7
+
+    //const post = data[id]
+
+    const pathParts = window.location.pathname.split("/")
+    const slug = pathParts[pathParts.length - 2] // gets slug
+
+    const post = data.find(p => p.slug === slug)
+
+    if(!post){
+      document.getElementById("postTitle").innerText = "Post not found"
+      return
+    }
+
+    // Set Title
+    document.getElementById("postTitle").innerText = post.title || post.Title
+
+    // Set Post Title
+    document.getElementById("title").innerText = (post.title || post.Title) + " | TechStudy24by7"
+
+    // Meta
+    document.getElementById("postMeta").innerText =
+      `By Admin • ${post.Date || ''}`
+
+    // Image
+    document.getElementById("postImage").src =
+      post.image || "https://picsum.photos/1200/600"
+
+    // Content
+    document.getElementById("postContent").innerHTML = `
+
+${post.content || "No content available"}
+
+<!-- TAGS -->
+<div class="tags">
+  ${(post.tags || ["General"]).map(tag => `<span class="tag">${tag}</span>`).join("")}
+</div>
+
+<!-- SHARE -->
+<div class="share">
+  <button onclick="sharePost()">Share</button>
+  <button onclick="copyLink()">Copy Link</button>
+</div>
+
+<!-- AUTHOR -->
+<div class="author-box">
+  <img src="${post.authorImage || 'https://i.pravatar.cc/100'}">
+  <div>
+    <strong>${post.author || 'Admin'}</strong>
+    <p>${post.authorBio || 'Tech writer and blogger.'}</p>
+  </div>
+</div>
+
+`
+
+  }catch(err){
+    console.error("Error loading post:", err)
+  }
+
+}
+
+loadPost()
+
+</script>
+
+<script>
+async function loadRelatedPosts() {
+  try {
+    const response = await fetch('/data.json');
+    const posts = await response.json();
+
+    // Shuffle array
+    const shuffled = posts.sort(() => 0.5 - Math.random());
+
+    // Pick first 3
+    const selectedPosts = shuffled.slice(0, 3);
+
+    const container = document.getElementById('related-posts');
+    container.innerHTML = '';
+
+    selectedPosts.forEach(post => {
+      const card = `
+        <a href="/blog/${post.slug}/" class="related-card">
+          <img src="${post.image}" alt="${post.title}">
+          <div class="related-content">
+            <h4>${post.title}</h4>
+            <p>${post.content}</p>
+          </div>
+        </a>
+      `;
+      container.innerHTML += card;
+    });
+
+  } catch (error) {
+    console.error('Error loading related posts:', error);
+  }
+}
+
+loadRelatedPosts();
+</script>
+
+<script>
+async function loadPopularPosts() {
+  try {
+    const response = await fetch('/data.json');
+    const posts = await response.json();
+
+    // Shuffle array
+    const shuffled = posts.sort(() => 0.5 - Math.random());
+
+    // Pick first 3
+    const selectedPosts = shuffled.slice(0, 3);
+
+    const container = document.getElementById('popular-posts');
+    container.innerHTML = '';
+
+    selectedPosts.forEach(post => {
+      const card = `
+        <a href="/blog/${post.slug}/" class="popular-card">
+          <img src="${post.image}" alt="${post.title}">
+          <div class="popular-content">
+            <h4>${post.title}</h4>
+            <p>${post.content}</p>
+          </div>
+        </a>
+      `;
+      container.innerHTML += card;
+    });
+
+  } catch (error) {
+    console.error('Error loading popular posts:', error);
+  }
+}
+
+loadPopularPosts();
+</script>
+
+<script>
+
+/* Reading progress */
+
+window.addEventListener("scroll",()=>{
+
+let winScroll=document.body.scrollTop || document.documentElement.scrollTop
+let height=document.documentElement.scrollHeight-document.documentElement.clientHeight
+let scrolled=(winScroll/height)*100
+
+document.getElementById("progress").style.width=scrolled+"%"
+
+})
+
+/* Share */
+
+function sharePost(){
+
+if(navigator.share){
+navigator.share({
+title:document.title,
+url:window.location.href
+})
+}
+
+}
+
+/* Copy link */
+
+function copyLink(){
+
+navigator.clipboard.writeText(window.location.href)
+alert("Link copied!")
+
+}
+
+</script>
+
+<script>
+/* ----------------------------
+   Load Header & Footer Includes
+----------------------------- */
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("[data-include]").forEach(el => {
+    fetch(el.dataset.include)
+      .then(res => res.text())
+      .then(html => el.innerHTML = html)
+      .catch(err => console.error("Include error:", err));
+  });
+});
+</script>
+
+</body>
+</html>
