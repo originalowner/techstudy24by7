@@ -97,6 +97,39 @@ button:disabled{
 
 </div>
 
+
+<input type="file" id="fileInput" />
+<button onclick="uploadImage()">Upload</button>
+
+<script>
+async function uploadImage() {
+    const file = document.getElementById("fileInput").files[0];
+
+    const reader = new FileReader();
+
+    reader.onload = async function () {
+        const base64 = reader.result.split(",")[1];
+
+        const response = await fetch("https://21mti522j3.execute-api.ap-south-1.amazonaws.com/generate", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                filename: file.name,
+                content: base64
+            })
+        });
+
+        const data = await response.json();
+        console.log(data);
+    };
+
+    reader.readAsDataURL(file);
+}
+</script>
+
+
 <script>
 
 async function generateContent(){
