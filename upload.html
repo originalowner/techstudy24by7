@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -123,13 +124,21 @@ async function generateContent(){
 
         // ✅ Convert image to base64 if selected
         if (imageFile) {
+            console.log("🔄 Converting image to base64...0");
             base64Image = await new Promise((resolve, reject) => {
+                console.log("🔄 Converting image to base64...1");
                 const reader = new FileReader();
+                console.log("🔄 Converting image to base64...2");
                 reader.onload = () => {
+                    console.log("🔄 Converting image to base64...3");
                     resolve(reader.result.split(",")[1]); // remove metadata
+                    console.log("🔄 Converting image to base64...4");
                 };
+                console.log("🔄 Converting image to base64...5");
                 reader.onerror = reject;
+                console.log("🔄 Converting image to base64...6");
                 reader.readAsDataURL(imageFile);
+                console.log("🔄 Converting image to base64...7");
             });
         }
 
