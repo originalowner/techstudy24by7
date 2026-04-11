@@ -43,5 +43,20 @@
     "authorBio": "Tech writer focused on AI, startups and software development.",
     "authorImage": "https://i.pravatar.cc/100",
     "slug": "how-to-secure-your-linux-system-like-a-pro"
+  },
+  {
+    "content": "Hello",
+    "Date": "2026-04-11",
+    "title": "Automating Tasks in Linux Using Bash Scripts",
+    "image": "https://picsum.photos/1200/600",
+    "tags": [
+      "AI",
+      "Technology",
+      "Development"
+    ],
+    "author": "Admin",
+    "authorBio": "Tech writer focused on AI, startups and software development.",
+    "authorImage": "https://i.pravatar.cc/100",
+    "slug": "automating-tasks-in-linux-using-bash-scripts"
   }
 ]
