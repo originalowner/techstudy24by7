@@ -88,5 +88,20 @@
     "authorBio": "Tech writer focused on AI, startups and software development.",
     "authorImage": "https://i.pravatar.cc/100",
     "slug": "devops-for-techies-in-daily-tech-operations"
+  },
+  {
+    "content": "Hello",
+    "Date": "2026-04-11",
+    "title": "How to Do Things Which I Dont Know",
+    "image": "https://picsum.photos/1200/600",
+    "tags": [
+      "AI",
+      "Technology",
+      "Development"
+    ],
+    "author": "Admin",
+    "authorBio": "Tech writer focused on AI, startups and software development.",
+    "authorImage": "https://i.pravatar.cc/100",
+    "slug": "how-to-do-things-which-i-dont-know"
   }
 ]
