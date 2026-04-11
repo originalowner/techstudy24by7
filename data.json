@@ -83,5 +83,22 @@
     "authorBio": "Tech writer focused on AI, startups and software development.",
     "authorImage": "https://i.pravatar.cc/100",
     "slug": "devops-is-best-for-all"
+  },
+  {
+    "content": "Hello",
+    "excert": "Hello",
+    "category": "AWS",
+    "Date": "2026-04-11",
+    "title": "AWS RDS which helps Databases to be Robust",
+    "image": "https://raw.githubusercontent.com/originalowner/techstudy24by7/main/blog-images/1775949639_Gemini_Generated_Image_9efla49efla49efl.png",
+    "tags": [
+      "AI",
+      "Technology",
+      "Development"
+    ],
+    "author": "Admin",
+    "authorBio": "Tech writer focused on AI, startups and software development.",
+    "authorImage": "https://i.pravatar.cc/100",
+    "slug": "aws-rds-which-helps-databases-to-be-robust"
   }
 ]
