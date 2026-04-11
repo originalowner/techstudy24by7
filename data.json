@@ -28,5 +28,20 @@
     "authorBio": "Tech writer focused on AI, startups and software development.",
     "authorImage": "https://i.pravatar.cc/100",
     "slug": "top-linux-distributions-in-2026-which-one-should-you-choose"
+  },
+  {
+    "content": "Hello",
+    "Date": "2026-04-11",
+    "title": "How to Secure Your Linux System Like a Pro",
+    "image": "https://picsum.photos/1200/600",
+    "tags": [
+      "AI",
+      "Technology",
+      "Development"
+    ],
+    "author": "Admin",
+    "authorBio": "Tech writer focused on AI, startups and software development.",
+    "authorImage": "https://i.pravatar.cc/100",
+    "slug": "how-to-secure-your-linux-system-like-a-pro"
   }
 ]
