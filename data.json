@@ -200,5 +200,22 @@
     "authorBio": "Tech writer focused on AI, startups and software development.",
     "authorImage": "https://i.pravatar.cc/100",
     "slug": "aws-rds-which-helps-databases-to-be-robust"
+  },
+  {
+    "content": "Hello",
+    "excert": "Hello",
+    "category": "Linux",
+    "Date": "2026-04-11",
+    "title": "Linux OS hardening in 2026",
+    "image": "https://picsum.photos/1200/600",
+    "tags": [
+      "AI",
+      "Technology",
+      "Development"
+    ],
+    "author": "Admin",
+    "authorBio": "Tech writer focused on AI, startups and software development.",
+    "authorImage": "https://i.pravatar.cc/100",
+    "slug": "linux-os-hardening-in-2026"
   }
 ]
