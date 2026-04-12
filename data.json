@@ -66,5 +66,22 @@
     "authorBio": "Tech writer focused on AI, startups and software development.",
     "authorImage": "https://i.pravatar.cc/100",
     "slug": "remote-copying-tools-in-linux"
+  },
+  {
+    "content": "Hello",
+    "excert": "Hello",
+    "category": "Linux",
+    "Date": "2026-04-12",
+    "title": "Compression and Archiving in Linux",
+    "image": "https://raw.githubusercontent.com/originalowner/techstudy24by7/main/blog-images/1775954803_Gemini_Generated_Image_9efla49efla49efl.png",
+    "tags": [
+      "AI",
+      "Technology",
+      "Development"
+    ],
+    "author": "Admin",
+    "authorBio": "Tech writer focused on AI, startups and software development.",
+    "authorImage": "https://i.pravatar.cc/100",
+    "slug": "compression-and-archiving-in-linux"
   }
 ]
