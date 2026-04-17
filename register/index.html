@@ -75,7 +75,7 @@ async function register() {
     if (res.ok) {
       msg.style.color = "green";
       msg.textContent = "Registration successful! Redirecting to login...";
-      setTimeout(() => window.location.href = "/login", 2000);
+      setTimeout(() => window.location.href = "/login/", 2000);
     } else {
       msg.style.color = "red";
       msg.textContent = data.error || "Registration failed.";
