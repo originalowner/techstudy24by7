@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | TechStudy24By7</title>
+  <style>
+    /* === Global Theme === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      background-color: #f4f6f9;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #2c3e50;
+      color: #ecf0f1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+    }
+
+    header h1 {
+      font-size: 22px;
+    }
+
+    header a {
+      color: #ecf0f1;
+      text-decoration: none;
+      background-color: #1abc9c;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+
+    header a:hover {
+      background-color: #16a085;
+    }
+
+    .container {
+      background-color: #fff;
+      max-width: 400px;
+      margin: 80px auto;
+      padding: 40px 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .container h2 {
+      color: #2c3e50;
+      margin-bottom: 25px;
+    }
+
+    .container input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+      transition: border-color 0.2s;
+    }
+
+    .container input:focus {
+      border-color: #1abc9c;
+      outline: none;
+    }
+
+    .container button {
+      width: 100%;
+      background-color: #1abc9c;
+      color: #fff;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .container button:hover {
+      background-color: #16a085;
+    }
+
+    .container p {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .container a {
+      color: #1abc9c;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .container a:hover {
+      text-decoration: underline;
+    }
+
+    .message {
+      margin-top: 15px;
+      font-size: 14px;
+      color: red;
+    }
+
+    footer {
+      background-color: #2c3e50;
+      color: #ecf0f1;
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>TechStudy24By7</h1>
+  <a href="/">Home</a>
+</header>
+
+<div class="container">
+  <h2>Login</h2>
+  <input type="text" id="username" placeholder="Enter your username">
+  <input type="password" id="password" placeholder="Enter your password">
+  <button onclick="login()">Login</button>
+  <p><a href="/forgot/">Forgot password?</a></p>
+  <p>Don't have an account? <a href="/register/">Register</a></p>
+  <div id="message" class="message"></div>
+</div>
+
+<footer>
+  &copy; 2026 TechStudy24By7 | All rights reserved.
+</footer>
+
+<script>
+const API_BASE = "https://www.techstudy24by7.com";
+
+async function login() {
+  const username = document.getElementById("username").value.trim();
+  const password = document.getElementById("password").value.trim();
+  const msg = document.getElementById("message");
+  msg.textContent = "";
+
+  if (!username || !password) {
+    msg.textContent = "Please enter both username and password.";
+    return;
+  }
+
+  try {
+    // Bypassed the Login Logic
+    //const res = await fetch(`${API_BASE}/login`, {
+    //  method: "POST",
+    //  headers: {"Content-Type": "application/json"},
+    //  body: JSON.stringify({ username, password })
+    //});
+    const res = {
+      ok: true,
+      status: 200,
+      token: "xxxxx",
+      json: async () => ({ message: "success" })
+    };
+
+    const data = await res.json();
+
+    if (res.ok) {
+      msg.style.color = "green";
+      msg.textContent = "Login successful! Redirecting...";
+      if (data.token) {
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("username", username);
+      }
+      setTimeout(() => window.location.href = "/", 2000);
+    } else {
+      msg.style.color = "red";
+      msg.textContent = data.error || "Invalid username or password.";
+    }
+  } catch (e) {
+    msg.style.color = "red";
+    msg.textContent = "Network error.";
+  }
+}
+</script>
+
+</body>
+</html>
