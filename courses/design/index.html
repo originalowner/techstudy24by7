@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coming Soon</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      color: #fff;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 600px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .time-box {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 15px 20px;
+      border-radius: 10px;
+    }
+
+    .time-box span {
+      display: block;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .label {
+      font-size: 0.9rem;
+    }
+
+    .email-box {
+      margin-top: 30px;
+    }
+
+    input[type="email"] {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      width: 70%;
+      max-width: 300px;
+    }
+
+    button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      background: #fff;
+      color: #333;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    button:hover {
+      background: #eee;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Coming Soon 🚀</h1>
+    <p>We're working hard to launch something amazing. Stay tuned!</p>
+
+    <div class="countdown">
+      <div class="time-box">
+        <span id="days">00</span>
+        <div class="label">Days</div>
+      </div>
+      <div class="time-box">
+        <span id="hours">00</span>
+        <div class="label">Hours</div>
+      </div>
+      <div class="time-box">
+        <span id="minutes">00</span>
+        <div class="label">Minutes</div>
+      </div>
+      <div class="time-box">
+        <span id="seconds">00</span>
+        <div class="label">Seconds</div>
+      </div>
+    </div>
+
+    <div class="email-box">
+      <p>Get notified when we launch</p>
+      <input type="email" placeholder="Enter your email">
+      <button onclick="subscribe()">Notify Me</button>
+    </div>
+  </div>
+
+  <script>
+    // Set launch date
+    const launchDate = new Date("May 30, 2026 00:00:00").getTime();
+
+    const countdown = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = launchDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((distance / (1000 * 60)) % 60);
+      const seconds = Math.floor((distance / 1000) % 60);
+
+      document.getElementById("days").innerText = days;
+      document.getElementById("hours").innerText = hours;
+      document.getElementById("minutes").innerText = minutes;
+      document.getElementById("seconds").innerText = seconds;
+
+      if (distance < 0) {
+        clearInterval(countdown);
+        document.querySelector(".countdown").innerHTML = "We are live!";
+      }
+    }, 1000);
+
+    function subscribe() {
+      const email = document.querySelector("input").value;
+      if (email) {
+        alert("Thanks! We'll notify you at " + email);
+      } else {
+        alert("Please enter a valid email.");
+      }
+    }
+  </script>
+
+</body>
+</html>
