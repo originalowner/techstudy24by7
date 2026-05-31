@@ -119,33 +119,39 @@
 
         <ul>
             <li><strong>title</strong> – Blog title</li>
+	    <li><strong>excert</strong> – Blog Excert</li>
             <li><strong>slug</strong> – URL-friendly blog identifier</li>
             <li><strong>category</strong> – Blog category (AWS, Linux, DevOps, etc.)</li>
+	    <li><strong>tags</strong> – Blog Tags</li>
             <li><strong>author</strong> – Author name</li>
-            <li><strong>publishedDate</strong> – Date in YYYY-MM-DD format</li>
-            <li><strong>topicDetails</strong> – Detailed instructions for Gemini to generate the article</li>
+            <li><strong>publisheddate</strong> – Date in YYYY-MM-DD format</li>
+            <li><strong>topicdetails</strong> – Detailed instructions for Gemini to generate the article</li>
         </ul>
 
         <h3>Example Input</h3>
 
         <pre>{
   "title": "This Is A Blog",
+  "excert": "This is Exert",
   "slug": "this-is-a-blog",
   "category": "Linux",
+  "tags": ["AI", "Technology", "Development"],
   "author": "John Doe",
-  "publishedDate": "2026-05-31",
-  "topicDetails": "Explain AWS RDS features that improve database reliability and robustness, including Multi-AZ, backups, monitoring, failover, scaling, and real-world examples."
+  "publisheddate": "2026-05-31",
+  "topicdetails": "Explain AWS RDS features that improve database reliability and robustness, including Multi-AZ, backups, monitoring, failover, scaling, and real-world examples."
 }</pre>
     </div>
 
     <textarea id="jsonInput">
 {
   "title": "This Is A Blog",
+  "excert": "This is Exert",
   "slug": "this-is-a-blog",
   "category": "Linux",
+  "tags": ["AI", "Technology", "Development"],
   "author": "John Doe",
-  "publishedDate": "2026-05-31",
-  "topicDetails": "Explain AWS RDS features that improve database reliability and robustness, including Multi-AZ, backups, monitoring, failover, scaling, and real-world examples."
+  "publisheddate": "2026-05-31",
+  "topicdetails": "Explain AWS RDS features that improve database reliability and robustness, including Multi-AZ, backups, monitoring, failover, scaling, and real-world examples."
 }
     </textarea>
 
