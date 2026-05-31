@@ -3,139 +3,108 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AWS API Gateway POST Request</title>
+<title>Generate Blog</title>
 
 <style>
-    * {
-        box-sizing: border-box;
-        font-family: Arial, sans-serif;
-    }
-
     body {
-        background: #f4f6f9;
-        padding: 30px;
+        font-family: Arial, sans-serif;
+        background: #f5f5f5;
+        padding: 20px;
     }
 
     .container {
-        max-width: 800px;
+        max-width: 900px;
         margin: auto;
-        background: white;
-        padding: 25px;
-        border-radius: 10px;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
-    h2 {
-        margin-bottom: 20px;
-    }
-
-    label {
-        display: block;
-        margin-top: 12px;
-        font-weight: bold;
-    }
-
-    input,
     textarea {
         width: 100%;
+        height: 350px;
         padding: 10px;
-        margin-top: 5px;
-        border: 1px solid #ddd;
-        border-radius: 6px;
-    }
-
-    textarea {
-        min-height: 120px;
-        resize: vertical;
+        font-family: monospace;
+        font-size: 14px;
     }
 
     button {
-        margin-top: 20px;
+        margin-top: 15px;
+        padding: 12px 20px;
         background: #007bff;
         color: white;
         border: none;
-        padding: 12px 20px;
-        border-radius: 6px;
+        border-radius: 5px;
         cursor: pointer;
-        font-size: 16px;
     }
 
     button:hover {
         background: #0056b3;
     }
 
-    #response {
+    pre {
+        background: #f4f4f4;
+        padding: 10px;
         margin-top: 20px;
-        padding: 15px;
-        background: #f8f9fa;
-        border-radius: 6px;
-        white-space: pre-wrap;
-        overflow-wrap: break-word;
+        overflow: auto;
     }
 </style>
 </head>
 <body>
 
 <div class="container">
-    <h2>Create Blog</h2>
+    <h2>Generate Blog Content</h2>
 
-    <label>Title</label>
-    <input type="text" id="title" value="This Is A Blog">
+    <textarea id="jsonInput">
+{
+  "title": "This Is A Blog",
+  "slug": "this-is-a-blog",
+  "category": "Linux",
+  "author": "John Doe",
+  "publishedDate": "2026-05-31",
+  "topicDetails": "Explain AWS RDS features that improve database reliability and robustness, including Multi-AZ, backups, monitoring, failover, scaling, and real-world examples."
+}
+    </textarea>
 
-    <label>Slug</label>
-    <input type="text" id="slug" value="this-is-a-blog">
+    <button onclick="submitRequest()">Generate</button>
 
-    <label>Category</label>
-    <input type="text" id="category" value="Linux">
-
-    <label>Author</label>
-    <input type="text" id="author" value="John Doe">
-
-    <label>Published Date</label>
-    <input type="date" id="publishedDate" value="2026-05-31">
-
-    <label>Topic Details</label>
-    <textarea id="topicDetails">Explain AWS RDS features that improve database reliability and robustness, including Multi-AZ, backups, monitoring, failover, scaling, and real-world examples.</textarea>
-
-    <button onclick="submitBlog()">Send POST Request</button>
-
-    <div id="response"></div>
+    <pre id="response"></pre>
 </div>
 
 <script>
-async function submitBlog() {
-    const apiUrl = "YOUR_API_GATEWAY_URL";
+async function submitRequest() {
 
-    const payload = {
-        title: document.getElementById("title").value,
-        slug: document.getElementById("slug").value,
-        category: document.getElementById("category").value,
-        author: document.getElementById("author").value,
-        publishedDate: document.getElementById("publishedDate").value,
-        topicDetails: document.getElementById("topicDetails").value
-    };
+    const apiUrl = "https://YOUR_API_GATEWAY_URL";
 
-    const responseDiv = document.getElementById("response");
-    responseDiv.textContent = "Sending request...";
+    let payload;
+
+    try {
+        payload = JSON.parse(
+            document.getElementById("jsonInput").value
+        );
+    } catch (error) {
+        alert("Invalid JSON");
+        return;
+    }
 
     try {
         const response = await fetch(apiUrl, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
-                // Add Authorization header if required
-                // "Authorization": "Bearer YOUR_TOKEN"
             },
             body: JSON.stringify(payload)
         });
 
-        const responseText = await response.text();
+        const data = await response.json();
 
-        responseDiv.textContent =
-            `Status: ${response.status}\n\nResponse:\n${responseText}`;
+        document.getElementById("response").textContent =
+            JSON.stringify(data, null, 2);
+
     } catch (error) {
-        responseDiv.textContent =
-            `Error:\n${error.message}`;
+        document.getElementById("response").textContent =
+            error.message;
     }
 }
 </script>
