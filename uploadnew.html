@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AWS API Gateway POST Request</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        background: #f4f6f9;
+        padding: 30px;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: auto;
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin-top: 12px;
+        font-weight: bold;
+    }
+
+    input,
+    textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+    }
+
+    textarea {
+        min-height: 120px;
+        resize: vertical;
+    }
+
+    button {
+        margin-top: 20px;
+        background: #007bff;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background: #0056b3;
+    }
+
+    #response {
+        margin-top: 20px;
+        padding: 15px;
+        background: #f8f9fa;
+        border-radius: 6px;
+        white-space: pre-wrap;
+        overflow-wrap: break-word;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Create Blog</h2>
+
+    <label>Title</label>
+    <input type="text" id="title" value="This Is A Blog">
+
+    <label>Slug</label>
+    <input type="text" id="slug" value="this-is-a-blog">
+
+    <label>Category</label>
+    <input type="text" id="category" value="Linux">
+
+    <label>Author</label>
+    <input type="text" id="author" value="John Doe">
+
+    <label>Published Date</label>
+    <input type="date" id="publishedDate" value="2026-05-31">
+
+    <label>Topic Details</label>
+    <textarea id="topicDetails">Explain AWS RDS features that improve database reliability and robustness, including Multi-AZ, backups, monitoring, failover, scaling, and real-world examples.</textarea>
+
+    <button onclick="submitBlog()">Send POST Request</button>
+
+    <div id="response"></div>
+</div>
+
+<script>
+async function submitBlog() {
+    const apiUrl = "YOUR_API_GATEWAY_URL";
+
+    const payload = {
+        title: document.getElementById("title").value,
+        slug: document.getElementById("slug").value,
+        category: document.getElementById("category").value,
+        author: document.getElementById("author").value,
+        publishedDate: document.getElementById("publishedDate").value,
+        topicDetails: document.getElementById("topicDetails").value
+    };
+
+    const responseDiv = document.getElementById("response");
+    responseDiv.textContent = "Sending request...";
+
+    try {
+        const response = await fetch(apiUrl, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+                // Add Authorization header if required
+                // "Authorization": "Bearer YOUR_TOKEN"
+            },
+            body: JSON.stringify(payload)
+        });
+
+        const responseText = await response.text();
+
+        responseDiv.textContent =
+            `Status: ${response.status}\n\nResponse:\n${responseText}`;
+    } catch (error) {
+        responseDiv.textContent =
+            `Error:\n${error.message}`;
+    }
+}
+</script>
+
+</body>
+</html>
